@@ -1,0 +1,9 @@
+.list {
+  height: 50vh;
+  border: 1px solid blueviolet;
+  border-radius: 24px;
+  margin-top: 10px; }
+  .list ul {
+    padding: 0; }
+
+/*# sourceMappingURL=TaskList.module.css.map */

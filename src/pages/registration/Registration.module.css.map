@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,aAAc;EACZ,OAAO,EAAE,IAAI;EACb,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,kBAAK;IACH,OAAO,EAAE,IAAI;IACb,cAAc,EAAE,MAAM;IACtB,eAAe,EAAE,MAAM;EAEzB,mBAAM;IACJ,aAAa,EAAE,IAAI",
+"sources": ["Registration.module.scss"],
+"names": [],
+"file": "Registration.module.css"
+}

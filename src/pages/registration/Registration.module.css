@@ -1,0 +1,12 @@
+.registration {
+  display: flex;
+  align-items: center;
+  flex-direction: column; }
+  .registration form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; }
+  .registration input {
+    margin-bottom: 10px; }
+
+/*# sourceMappingURL=Registration.module.css.map */

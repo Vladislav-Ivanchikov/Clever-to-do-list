@@ -1,0 +1,22 @@
+.pos {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.loader {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px dashed coral;
+    animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg) scale(1) ;
+    }
+    to {
+        transform: rotate(360deg) scale(1.5)
+    }
+}

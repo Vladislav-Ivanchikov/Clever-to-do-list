@@ -1,0 +1,56 @@
+li {
+  list-style: none;
+  padding: 10px;
+  border: 1px solid rebeccapurple;
+  border-radius: 5px;
+  display: flex;
+  margin: 0 10px 5px 10px;
+
+  .checkbox {
+    width: 10%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .taskWrap {
+    width: 80%;
+    padding: 5px;
+
+    .title {
+      font-size: 18px;
+      padding: 5px;
+    }
+
+    .desc {
+      font-style: italic;
+    }
+  }
+
+  .button {
+    display: flex;
+    width: 10%;
+    align-items: center;
+    justify-content: center;
+
+    button {
+      border: 1px solid coral;
+      border-radius: 5px;
+      background-color: transparent;
+      color: coral;
+      cursor: pointer;
+      transition: .2s;
+    }
+
+    button:hover {
+      background-color: coral;
+      color: white;
+    }
+  }
+
+  li:last-child {
+    margin-bottom: 0;
+  }
+}
+
+
