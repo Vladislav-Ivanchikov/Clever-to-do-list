@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import firebase from "firebase/compat";
 
-firebase.initializeApp({
+const app = firebase.initializeApp({
     apiKey: "AIzaSyCkbKLkKSpNvHYODlqM79l6R3xycQBy2Ac",
     authDomain: "level1intership.firebaseapp.com",
     projectId: "level1intership",
@@ -12,7 +12,7 @@ firebase.initializeApp({
     appId: "1:447286992029:web:3a1e669c4d810b794c0874"
 })
 
-const auth = firebase.auth()
+export const auth = app.auth()
 export const Context = createContext(null)
 
 

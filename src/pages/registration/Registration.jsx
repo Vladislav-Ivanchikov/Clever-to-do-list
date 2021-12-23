@@ -1,24 +1,30 @@
 import React, {useState} from 'react';
 import s from './Registration.module.scss'
-import {getAuth, createUserWithEmailAndPassword} from "firebase/auth";
+import {useAuth} from "../../context/auth/AuthContext";
 
 const Registration = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const {register, signIn} = useAuth()
 
-    const regNewUser = (e) => {
+    const entry = async (email, password) => {
+        try {
+            await signIn(email, password)
+        }catch (error){
+            alert(error.message)
+        }
+    }
+
+    const regNewUser = async (e) => {
         e.preventDefault()
-        const auth = getAuth();
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                const user = userCredential.user;
-                alert(`User with email:${email} register`)
-                console.log(user)
-            })
 
-            .catch((error) => {
-                alert(error.message)
-            });
+        try {
+            await register(email, password)
+        }catch (error){
+            alert(error.message)
+        }
+
+        await entry(email, password)
     }
 
     return (
