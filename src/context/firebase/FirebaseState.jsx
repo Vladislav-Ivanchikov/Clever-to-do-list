@@ -1,67 +1,87 @@
-import React, {useReducer} from 'react';
-import axios from 'axios'
-import {FirebaseContext} from "./firebaseContext";
-import firebaseReduser from "./firebaseReduser";
-import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING} from "../../utils/const";
-import {auth} from "../../index";
-const url = process.env.REACT_APP_DB_URL
+import React, {useContext, useState} from 'react';
+import firebase from '../../api/FirebaseInit';
+import {useAuth} from '../auth/AuthContext';
+const FirebaseContext = React.createContext();
 
+export function useFirebase() {
+    return useContext(FirebaseContext);
+}
 
 const FirebaseState = ({children}) => {
-    const initialState = {
-        tasks: [],
-        loading: false
-    }
-    const [state, dispatch] = useReducer(firebaseReduser, initialState)
+    const [tasks, setTasks] = useState([]);
+    const [task, setTask] = useState([]);
+    const [loading, setLoading] = useState(false);
+    const ref = firebase.firestore().collection('tasks');
+    const {currentUser} = useAuth();
 
-    const showLoader = () => dispatch({type: SHOW_LOADING})
-
-    const fetchTasks = async () => {
-
-        showLoader()
-        const uid = auth.currentUser.uid
-        const res = await axios.get(`${url}/tasks/${uid}.json`)
-        if (res.data !== null){
-            const payload = Object.keys(res.data).map(key => ({
-                ...res.data[key], id: key
-            }))
-            dispatch({type: FETCH_TASKS, payload})
-        }
-    }
-
-    const addTasks = async (title, desc) => {
-        const uid = auth.currentUser.uid
-        const task = {
-            title, desc
-        }
-        try {
-            const res = await axios.post(`${url}/tasks/${uid}.json`, task)
-            const payload = {
-                ...task, id: res.data.name
-            }
-            dispatch({type: ADD_TASK, payload})
-
-        } catch (e) {
-            throw new Error(e.message)
-        }
-    }
-
-    const removeTasks = async id => {
-        const uid = auth.currentUser.uid
-        await axios.delete(`${url}/tasks/${uid}/${id}.json`)
-        dispatch({
-            type: REMOVE_TASK,
-            payload: id
+    function getTasks() {
+        ref
+            .where('email', '==', currentUser.email)
+            .get().then((item) => {
+            const items = item.docs.map((doc) => doc.data());
+            setTasks(items);
         })
+        setLoading(false);
     }
+
+    function getTaskById(taskId) {
+        ref
+            .doc(taskId).get()
+            .then(snapshot => setTask(snapshot.data()))
+    }
+
+    function addTask(newTask) {
+        ref
+            .doc(newTask.id)
+            .set(newTask)
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+
+    function editTaskCompleted(id, checked) {
+        ref
+            .doc(id)
+            .update({completed: !checked})
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+
+    function editTask(updatedTask) {
+        ref
+            .doc(updatedTask.id)
+            .update(updatedTask)
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+
+    function deleteTask(taskId) {
+        ref
+            .doc(taskId)
+            .delete()
+            .catch((err) => {
+                console.error(err);
+            });
+    }
+
+    const value = {
+        ref,
+        tasks,
+        loading,
+        task,
+        addTask,
+        getTasks,
+        getTaskById,
+        editTaskCompleted,
+        editTask,
+        deleteTask
+    };
 
 
     return (
-        <FirebaseContext.Provider value={{
-            showLoader, addTasks, fetchTasks, removeTasks,
-            loading: state.loading,
-            tasks: state.tasks
-        }}>
+        <FirebaseContext.Provider value={value}>
             {children}
         </FirebaseContext.Provider>
     )

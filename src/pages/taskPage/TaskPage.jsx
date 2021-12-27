@@ -1,25 +1,24 @@
-import React, {useContext, useState} from 'react';
-import {FirebaseContext} from "../../context/firebase/firebaseContext";
+import React, {useState} from 'react';
 import s from './TaskPage.module.scss'
+import {useFirebase} from "../../context/firebase/FirebaseState";
+import {auth} from "../../index";
+
+
 
 const TaskPage = () => {
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
-    const firebase = useContext(FirebaseContext)
+    const { addTask } = useFirebase()
+    const id = Date.now().toString()
+    const user = auth.currentUser
+
+    const newTask = {
+        id ,title, desc, email: user.email
+    }
 
     const createTask = (e) => {
         e.preventDefault()
-        if (title.trim() && desc.trim()) {
-            firebase.addTasks(title.trim(), desc.trim()).then(() => {
-                alert('Task been created')
-            }).catch(() => {
-                alert('Something went wrong')
-            })
-            setTitle('')
-            setDesc('')
-        } else {
-            alert('Please fill all lines')
-        }
+        addTask(newTask)
     }
 
     return (
