@@ -3,11 +3,28 @@ header {
   width: 100%;
   height: 80px;
   border: 1px solid coral;
-  border-radius: 42px;
+  border-radius: 10px;
   align-items: center;
   justify-content: space-around; }
   header .links {
-    font-size: 16px;
-    cursor: pointer; }
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    color: rebeccapurple;
+    padding: 5px;
+    transition: .2s; }
+  header .links:hover {
+    font-size: 20px; }
+  header .sigOut {
+    border: none;
+    background-color: inherit;
+    font-size: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    color: rebeccapurple;
+    padding: 5px;
+    transition: .2s; }
+  header .sigOut:hover {
+    font-size: 20px; }
 
 /*# sourceMappingURL=Navbar.module.css.map */

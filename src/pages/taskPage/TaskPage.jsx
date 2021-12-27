@@ -1,5 +1,6 @@
 import React, {useContext, useState} from 'react';
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
+import s from './TaskPage.module.scss'
 
 const TaskPage = () => {
     const [title, setTitle] = useState('')
@@ -22,23 +23,25 @@ const TaskPage = () => {
     }
 
     return (
-        <form action="">
-            <div>
-                <input type="text"
-                       placeholder='Title'
-                       value={title}
-                       onChange={e => setTitle(e.target.value)}
-                />
-            </div>
-            <div>
-                <input type="text"
-                       placeholder='Description'
-                       value={desc}
-                       onChange={e => setDesc(e.target.value)}
-                />
-            </div>
-            <button onClick={createTask}>Create Task</button>
-        </form>
+        <div className={s.formWrap}>
+            <form action="">
+                <div>
+                    <input type="text"
+                           placeholder='Title your task'
+                           value={title}
+                           onChange={e => setTitle(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <textarea
+                           placeholder='Description your task'
+                           value={desc}
+                           onChange={e => setDesc(e.target.value)}
+                    />
+                </div>
+                <button onClick={createTask} className={s.button}>Create Task</button>
+            </form>
+        </div>
     );
 };
 

@@ -29,21 +29,26 @@ const Registration = () => {
 
     return (
         <div className={s.registration}>
-            <h1>Registration</h1>
+            <h1>Register</h1>
             <form action="">
-                Email:
-                <div>
+                <div className={s.inputWrap}>
                     <input type="email"
+                           placeholder='Email'
                            value={email}
                            onChange={(e) => setEmail(e.target.value)}/>
                 </div>
-                Password:
-                <div>
+                <div className={s.inputWrap}>
                     <input type="password"
+                           placeholder='Password'
                            value={password}
                            onChange={(e) => setPassword(e.target.value)}/>
                 </div>
-                <button onClick={regNewUser} type="submit">Register</button>
+                <button
+                    className={s.button}
+                    onClick={regNewUser}
+                    type="submit">
+                    Register
+                </button>
             </form>
         </div>
     );

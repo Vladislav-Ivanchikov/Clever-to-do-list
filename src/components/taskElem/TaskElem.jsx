@@ -7,7 +7,11 @@ const TaskElem = ({title, desc, onRemove, id}) => {
     return (
         <li>
             <div className={s.checkbox}>
-                <input type="checkbox" checked={check} onChange={() => setCheck(!check)}/>
+                <input type="checkbox"
+                       className={s.customCheckbox}
+                       checked={check}
+                       onChange={() => setCheck(!check)}
+                id='check'/>
             </div>
             <div className={s.taskWrap}>
                 <div className={s.title}>

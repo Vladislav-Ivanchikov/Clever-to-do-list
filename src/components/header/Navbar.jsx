@@ -22,19 +22,24 @@ const Navbar = () => {
     return (
         <header>
             <div>
-                <Link to='/'>Tasker</Link>
+                <Link to='/'
+                      className={s.links}
+                >
+                    Tasker
+                </Link>
             </div>
             <div>
                 {
                     user ?
-                        <button onClick={signOutUser}>Sign out</button>
+                        <button
+                            className={s.sigOut}
+                            onClick={signOutUser}>Sign out</button>
                         :
                         <div>
                             <Link to='/signin' className={s.links}>Sign in</Link>
                             |
                             <Link to='/registration' className={s.links}>Register</Link>
                         </div>
-
                 }
             </div>
         </header>

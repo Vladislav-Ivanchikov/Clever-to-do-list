@@ -9,6 +9,7 @@ export function useAuth() {
 
 const AuthProvider = ({children}) => {
     const [currentUser, setCurrentUser] = useState();
+    const [loading, setLoading] = useState(true)
 
     const register = (email, password) => {
         return auth.createUserWithEmailAndPassword(email, password)
@@ -25,6 +26,7 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const authState = auth.onAuthStateChanged(user => {
             setCurrentUser(user)
+            setLoading(false)
         })
         return authState
     }, [])
@@ -39,7 +41,7 @@ const AuthProvider = ({children}) => {
 
     return (
         <AuthContext.Provider value={values}>
-            {children}
+            {!loading && children}
         </AuthContext.Provider>
     );
 }

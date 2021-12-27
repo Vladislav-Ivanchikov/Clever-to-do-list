@@ -2,6 +2,7 @@ import React, {createContext} from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import firebase from "firebase/compat";
+import { getDatabase } from "firebase/database";
 
 const app = firebase.initializeApp({
     apiKey: "AIzaSyCkbKLkKSpNvHYODlqM79l6R3xycQBy2Ac",
@@ -11,14 +12,14 @@ const app = firebase.initializeApp({
     messagingSenderId: "447286992029",
     appId: "1:447286992029:web:3a1e669c4d810b794c0874"
 })
-
+export const database = getDatabase();
 export const auth = app.auth()
 export const Context = createContext(null)
 
 
 ReactDOM.render(
-      <Context.Provider value={{auth}}>
-          <App />
+      <Context.Provider value={{auth, database}}>
+              <App />
       </Context.Provider>,
   document.getElementById('root')
 );

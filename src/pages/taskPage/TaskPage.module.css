@@ -1,0 +1,48 @@
+.formWrap {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 1px solid coral;
+  border-radius: 10px;
+  margin-top: 20px; }
+  .formWrap form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px; }
+    .formWrap form input {
+      width: 300px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 0;
+      border-radius: 10px;
+      background-color: rgba(243, 233, 233, 0.5);
+      font-size: 18px; }
+    .formWrap form textarea {
+      width: 300px;
+      height: 300px;
+      margin-bottom: 10px;
+      padding: 10px;
+      border: 0;
+      border-radius: 10px;
+      background-color: rgba(243, 233, 233, 0.5);
+      font-size: 18px;
+      resize: vertical; }
+    .formWrap form .button {
+      width: 200px;
+      padding: 10px;
+      background-color: transparent;
+      color: coral;
+      font-size: 18px;
+      border: 1px solid coral;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .2s;
+      text-transform: capitalize;
+      text-decoration: none;
+      text-align: center; }
+    .formWrap form .button:hover {
+      background-color: rgba(255, 127, 80, 0.9);
+      color: whitesmoke; }
+
+/*# sourceMappingURL=TaskPage.module.css.map */
