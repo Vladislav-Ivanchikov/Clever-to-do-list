@@ -10,19 +10,22 @@ const CalendarItem = ({day, selectDate, date}) => {
             className += ' ' + s.active;
         }
 
-
     return (
-        <div className={className}
-             key={day}
-             data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
-             onClick={(e) => {
-                 selectDate(e)
-             }}>
-            {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
-            {/*<div>*/}
-            {/*    dots*/}
-            {/*</div>*/}
+        <div>
+            <div className={className}
+                 key={day}
+                 data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
+                 onClick={(e) => {
+                     selectDate(e)
+                 }}>
+                {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
+            </div>
+            <div className={s.dots}>
+                <div className={s.completeDot}></div>
+                <div className={s.noCompleteDot}></div>
+            </div>
         </div>
+
     );
 };
 
