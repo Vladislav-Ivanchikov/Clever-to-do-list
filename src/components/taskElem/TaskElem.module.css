@@ -1,39 +1,48 @@
-li {
+.li {
   list-style: none;
   padding: 10px;
   border: 1px solid rebeccapurple;
   border-radius: 5px;
   display: flex;
-  margin: 0 10px 5px 10px; }
-  li .checkbox {
+  margin: 0 10px 5px 10px;
+  transition: .2s; }
+  .li .checkbox {
     width: 10%;
     display: flex;
     align-items: center;
     justify-content: center; }
-  li .taskWrap {
+  .li .taskWrap {
     width: 80%;
     padding: 5px; }
-    li .taskWrap .title {
+    .li .taskWrap .title {
       font-size: 18px;
-      padding: 5px; }
-    li .taskWrap .desc {
-      font-style: italic; }
-  li .button {
+      padding: 5px;
+      transition: .2s; }
+      .li .taskWrap .title.active {
+        text-decoration: line-through; }
+    .li .taskWrap .desc {
+      font-style: italic;
+      transition: .2s; }
+      .li .taskWrap .desc.active {
+        text-decoration: line-through; }
+  .li .button {
     display: flex;
     width: 10%;
     align-items: center;
     justify-content: center; }
-    li .button button {
+    .li .button button {
       border: 1px solid coral;
       border-radius: 5px;
-      background-color: transparent;
+      background-color: white;
       color: coral;
       cursor: pointer;
       transition: .2s; }
-    li .button button:hover {
+    .li .button button:hover {
       background-color: coral;
       color: white; }
-  li li:last-child {
+  .li li:last-child {
     margin-bottom: 0; }
+  .li.active {
+    background-color: rgba(146, 57, 246, 0.5); }
 
 /*# sourceMappingURL=TaskElem.module.css.map */

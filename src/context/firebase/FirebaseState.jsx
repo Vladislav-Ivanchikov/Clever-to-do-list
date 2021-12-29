@@ -16,23 +16,24 @@ const FirebaseState = ({children}) => {
 
     const showLoader = () => dispatch({type: SHOW_LOADING})
 
-    const fetchTasks = async () => {
+    const fetchTasks = async (date) => {
 
         showLoader()
         const uid = auth.currentUser.uid
         const res = await axios.get(`${url}/tasks/${uid}.json`)
         if (res.data !== null){
-            const payload = Object.keys(res.data).map(key => ({
+            let payload = Object.keys(res.data).map(key => ({
                 ...res.data[key], id: key
             }))
+            payload = payload.filter(task => task.date === date)
             dispatch({type: FETCH_TASKS, payload})
         }
     }
 
-    const addTasks = async (title, desc) => {
+    const addTasks = async (title, desc, date) => {
         const uid = auth.currentUser.uid
         const task = {
-            title, desc
+            title, desc, date
         }
         try {
             const res = await axios.post(`${url}/tasks/${uid}.json`, task)

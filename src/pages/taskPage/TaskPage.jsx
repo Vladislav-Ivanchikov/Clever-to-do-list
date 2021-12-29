@@ -2,7 +2,7 @@ import React, {useContext, useState} from 'react';
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import s from './TaskPage.module.scss'
 
-const TaskPage = () => {
+const TaskPage = (props) => {
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
     const firebase = useContext(FirebaseContext)
@@ -10,7 +10,7 @@ const TaskPage = () => {
     const createTask = (e) => {
         e.preventDefault()
         if (title.trim() && desc.trim()) {
-            firebase.addTasks(title.trim(), desc.trim()).then(() => {
+            firebase.addTasks(title.trim(), desc.trim(), props.location.date).then(() => {
                 alert('Task been created')
             }).catch(() => {
                 alert('Something went wrong')

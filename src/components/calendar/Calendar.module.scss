@@ -3,27 +3,36 @@
   border: 1px solid coral;
   border-radius: 10px;
   margin: 20px 0 20px 0;
+
+  .calendarSlider {
+    display: flex;
+    overflow: auto;
+
+    .calendarItem {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 100px;
+      min-height: 70px;
+      border: 1px solid coral;
+      border-radius: 5px;
+      margin: 10px 15px 10px 15px;
+      text-align: center;
+      cursor: pointer;
+      transition: .2s;
+      &.active {
+        background-color: coral;
+        color: white;
+      }
+    }
+
+    .calendarItem:hover {
+      background-color: coral;
+      color: white;
+    }
+  }
 }
 
-.calendarSlider {
-  display: flex;
-  overflow: auto;
-}
 
-.calendarItem {
-  display: flex;
-  align-items: center;
-  min-width: 100px;
-  min-height: 60px;
-  border: 1px solid coral;
-  border-radius: 5px;
-  margin: 10px 15px 10px 15px;
-  text-align: center;
-  cursor: pointer;
-  transition: .2s;
-}
 
-.calendarItem:hover {
-  background-color: coral;
-  color: white;
-}
+
