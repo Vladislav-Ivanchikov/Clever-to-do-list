@@ -1,6 +1,7 @@
 import React from 'react';
-import s from './AddButton.module.scss'
 import {Link} from "react-router-dom";
+import {TASK_ROUTE} from "../../utils/const";
+import s from './AddButton.module.scss'
 
 const AddButton = ({date}) => {
 
@@ -8,7 +9,7 @@ const AddButton = ({date}) => {
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link
                 to={{
-                    pathname: '/task',
+                    pathname: TASK_ROUTE,
                     date
                 }}
                 className={s.button}>

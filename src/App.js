@@ -1,7 +1,7 @@
-import Navbar from "./components/header/Navbar";
+import Navbar from "./components/Navbar/Navbar";
 import './App.scss'
 import {BrowserRouter} from "react-router-dom";
-import AppRouter from "./components/router/AppRouter";
+import AppRouter from "./components/Router/AppRouter";
 import FirebaseState from "./context/firebase/FirebaseState";
 import AuthProvider from "./context/auth/AuthContext";
 

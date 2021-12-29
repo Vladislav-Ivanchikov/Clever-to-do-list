@@ -1,10 +1,9 @@
 import React, {useContext} from 'react';
-import s from './Navbar.module.scss';
 import {Link} from "react-router-dom";
 import {Context} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {getAuth, signOut} from "firebase/auth";
-
+import s from './Navbar.module.scss';
 
 const Navbar = () => {
     const {auth} = useContext(Context)

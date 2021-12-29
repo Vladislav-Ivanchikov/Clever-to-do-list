@@ -1,31 +1,32 @@
 import React, {useState} from 'react';
 import s from './TaskElem.module.scss';
 
-const TaskElem = ({title, desc, onRemove, id}) => {
+const TaskElem = ({title, desc, onRemove, id, getCheck}) => {
     const [check, setCheck] = useState(false)
-    let classNameLi = s.li
-    let classNameTitle = s.title
-    let classNameDesc = s.desc
+    let {liStyle, descStyle, titleStyle } = s
 
         if (check) {
-            classNameLi += ' ' + s.active
-            classNameTitle += ' ' + s.active
-            classNameDesc += ' ' + s.active
+            liStyle += ' ' + s.active
+            descStyle += ' ' + s.active
+            titleStyle += ' ' + s.active
         }
 
     return (
-        <li className={classNameLi}>
+        <li className={liStyle}>
             <div className={s.checkbox}>
                 <input type="checkbox"
                        checked={check}
-                       onChange={() => setCheck(!check)}
+                       onChange={() => {
+                           setCheck(!check)
+                           getCheck(check)
+                       }}
                        id='check'/>
             </div>
             <div className={s.taskWrap}>
-                <div className={classNameTitle}>
+                <div className={titleStyle}>
                     {title}
                 </div>
-                <div className={classNameDesc}>
+                <div className={descStyle}>
                     {desc}
                 </div>
             </div>

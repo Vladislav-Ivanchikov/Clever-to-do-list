@@ -2,8 +2,8 @@ import React, {useReducer} from 'react';
 import axios from 'axios'
 import {FirebaseContext} from "./firebaseContext";
 import firebaseReduser from "./firebaseReduser";
-import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING} from "../../utils/const";
 import {auth} from "../../index";
+import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING} from "../../utils/const";
 const url = process.env.REACT_APP_DB_URL
 
 
@@ -19,9 +19,9 @@ const FirebaseState = ({children}) => {
     const fetchTasks = async (date) => {
 
         showLoader()
-        const uid = auth.currentUser.uid
+        const {uid} = auth.currentUser
         const res = await axios.get(`${url}/tasks/${uid}.json`)
-        if (res.data !== null){
+        if (res.data){
             let payload = Object.keys(res.data).map(key => ({
                 ...res.data[key], id: key
             }))
@@ -31,7 +31,7 @@ const FirebaseState = ({children}) => {
     }
 
     const addTasks = async (title, desc, date) => {
-        const uid = auth.currentUser.uid
+        const {uid} = auth.currentUser
         const task = {
             title, desc, date
         }
@@ -48,7 +48,7 @@ const FirebaseState = ({children}) => {
     }
 
     const removeTasks = async id => {
-        const uid = auth.currentUser.uid
+        const {uid} = auth.currentUser
         await axios.delete(`${url}/tasks/${uid}/${id}.json`)
         dispatch({
             type: REMOVE_TASK,

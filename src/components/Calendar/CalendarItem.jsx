@@ -6,9 +6,13 @@ const CalendarItem = ({day, selectDate, date}) => {
     let className = s.calendarItem
     let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
 
-        if (selectDay === date) {
-            className += ' ' + s.active;
-        }
+    const selectedDate = (e) => {
+        selectDate(e)
+    }
+
+    if (selectDay === date) {
+        className += ' ' + s.active;
+    }
 
     return (
         <div>
@@ -16,7 +20,7 @@ const CalendarItem = ({day, selectDate, date}) => {
                  key={day}
                  data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
                  onClick={(e) => {
-                     selectDate(e)
+                     (e) = selectedDate(e)
                  }}>
                 {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
             </div>

@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
-import s from './Registration.module.scss'
 import {useAuth} from "../../context/auth/AuthContext";
+import s from './Registration.module.scss'
+
 
 const Registration = () => {
     const [email, setEmail] = useState('')

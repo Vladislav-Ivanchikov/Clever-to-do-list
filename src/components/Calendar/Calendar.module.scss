@@ -2,11 +2,17 @@
   height: 20vh;
   border: 1px solid coral;
   border-radius: 10px;
-  margin: 20px 0 20px 0; }
-  .calendar .calendarSlider {
+  margin: 20px 0 20px 0;
+
+  .h2 {
+    text-align: center;
+  }
+
+  .calendarSlider {
     display: flex;
-    overflow: auto; }
-    .calendar .calendarSlider .calendarItem {
+    overflow: auto;
+
+    .calendarItem {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -17,28 +23,41 @@
       margin: 10px 15px 10px 15px;
       text-align: center;
       cursor: pointer;
-      transition: .2s; }
-      .calendar .calendarSlider .calendarItem.active {
+      transition: .2s;
+      &.active {
         background-color: coral;
-        color: white; }
-    .calendar .calendarSlider .calendarItem:hover {
+        color: white;
+      }
+    }
+
+    .calendarItem:hover {
       background-color: coral;
-      color: white; }
-  .calendar .dots {
+      color: white;
+    }
+  }
+
+  .dots {
     display: flex;
     margin-bottom: 5px;
     justify-content: center;
-    align-items: center; }
-    .calendar .dots .completeDot {
+    align-items: center;
+
+    .completeDot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
       background-color: #101010;
-      margin-right: 5px; }
-    .calendar .dots .noCompleteDot {
+      margin-right: 5px;
+    }
+    .noCompleteDot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: #ff7f50; }
+      background-color: #ff7f50;
+    }
+  }
+}
 
-/*# sourceMappingURL=Calendar.module.css.map */
+
+
+

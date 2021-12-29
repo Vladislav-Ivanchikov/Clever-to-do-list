@@ -1,4 +1,4 @@
-.li {
+.liStyle {
   list-style: none;
   padding: 10px;
   border: 1px solid rebeccapurple;
@@ -6,43 +6,43 @@
   display: flex;
   margin: 0 10px 5px 10px;
   transition: .2s; }
-  .li .checkbox {
+  .liStyle .checkbox {
     width: 10%;
     display: flex;
     align-items: center;
     justify-content: center; }
-  .li .taskWrap {
+  .liStyle .taskWrap {
     width: 80%;
     padding: 5px; }
-    .li .taskWrap .title {
+    .liStyle .taskWrap .titleStyle {
       font-size: 18px;
       padding: 5px;
       transition: .2s; }
-      .li .taskWrap .title.active {
+      .liStyle .taskWrap .titleStyle.active {
         text-decoration: line-through; }
-    .li .taskWrap .desc {
+    .liStyle .taskWrap .descStyle {
       font-style: italic;
       transition: .2s; }
-      .li .taskWrap .desc.active {
+      .liStyle .taskWrap .descStyle.active {
         text-decoration: line-through; }
-  .li .button {
+  .liStyle .button {
     display: flex;
     width: 10%;
     align-items: center;
     justify-content: center; }
-    .li .button button {
+    .liStyle .button button {
       border: 1px solid coral;
       border-radius: 5px;
       background-color: white;
       color: coral;
       cursor: pointer;
       transition: .2s; }
-    .li .button button:hover {
+    .liStyle .button button:hover {
       background-color: coral;
       color: white; }
-  .li li:last-child {
+  .liStyle li:last-child {
     margin-bottom: 0; }
-  .li.active {
+  .liStyle.active {
     background-color: rgba(146, 57, 246, 0.5); }
 
 /*# sourceMappingURL=TaskElem.module.css.map */

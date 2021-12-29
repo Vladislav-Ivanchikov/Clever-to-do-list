@@ -1,4 +1,4 @@
-.li {
+.liStyle {
   list-style: none;
   padding: 10px;
   border: 1px solid rebeccapurple;
@@ -18,7 +18,7 @@
     width: 80%;
     padding: 5px;
 
-    .title {
+    .titleStyle {
       font-size: 18px;
       padding: 5px;
       transition: .2s;
@@ -27,7 +27,7 @@
       }
     }
 
-    .desc {
+    .descStyle {
       font-style: italic;
       transition: .2s;
       &.active {
