@@ -1,4 +1,4 @@
-import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING} from "../../utils/const";
+import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING, EDIT_TASK, EDIT_COMPLETED_TASK} from "../../utils/const";
 
 const handler = {
     [SHOW_LOADING]: state => ({...state, loading: true}),
@@ -14,6 +14,14 @@ const handler = {
     [REMOVE_TASK]: (state, {payload}) => ({
         ...state,
         tasks: state.tasks.filter(tasks => tasks.id !== payload)
+    }),
+    [EDIT_TASK]: (state, {payload}) => ({
+        ...state,
+        tasks: [...state.tasks, payload]
+    }),
+    [EDIT_COMPLETED_TASK]: (state) => ({
+        ...state,
+        tasks: [...state.tasks]
     }),
     DEFAULT: state => state
 }

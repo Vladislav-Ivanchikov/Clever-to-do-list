@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {useAuth} from "../../context/auth/AuthContext";
-import s from "../registration/Registration.module.scss";
+import s from "../Registration/Registration.module.scss";
 
 const SignIn = () => {
     const [email, setEmail] = useState('')

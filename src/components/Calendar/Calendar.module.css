@@ -35,12 +35,12 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: #101010;
+      background-color: #ff7f50;
       margin-right: 5px; }
     .calendar .dots .noCompleteDot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: #ff7f50; }
+      background-color: #101010; }
 
 /*# sourceMappingURL=Calendar.module.css.map */

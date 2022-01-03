@@ -3,14 +3,15 @@ import {Link} from "react-router-dom";
 import {TASK_ROUTE} from "../../utils/const";
 import s from './AddButton.module.scss'
 
-const AddButton = ({date}) => {
+const AddButton = ({date, complete}) => {
 
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link
                 to={{
                     pathname: TASK_ROUTE,
-                    date
+                    date,
+                    complete
                 }}
                 className={s.button}>
                 add new task +

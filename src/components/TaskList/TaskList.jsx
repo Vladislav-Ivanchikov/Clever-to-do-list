@@ -7,12 +7,12 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
 
     const getCheck = (value) => {
         setCheck(value)
-        getComplete(check)
     }
 
-    // useEffect(() => {
-    //     getComplete(check)
-    // }, [check])
+    useEffect(() => {
+        getComplete(check)
+    }, [getComplete, check])
+
 
     return (
         <div className={s.list}>

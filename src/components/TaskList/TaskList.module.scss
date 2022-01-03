@@ -1,8 +1,9 @@
 .list {
-  height: 50vh;
+  height: 60vh;
   border: 1px solid blueviolet;
   border-radius: 20px;
   margin-top: 10px;
+  overflow-y: auto;
 
   ul {
     padding: 0;

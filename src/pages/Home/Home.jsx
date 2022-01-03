@@ -3,11 +3,11 @@ import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import Calendar from "../../components/Calendar/Calendar";
 import TaskList from "../../components/TaskList/TaskList";
 import AddButton from "../../components/AddButton/AddButton";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
     const {loading, tasks, fetchTasks, removeTasks} = useContext(FirebaseContext)
-    const [selectDate, setSelectDate] = useState('')
+    const [selectDate, setSelectDate] = useState(false)
     const [complete, setComplete] = useState()
 
     const getDate = (value) => {
@@ -16,7 +16,6 @@ const Home = () => {
 
     const getComplete = (value) => {
         setComplete(value)
-        console.log(complete)
     }
 
     useEffect(() => {
@@ -26,14 +25,16 @@ const Home = () => {
         // eslint-disable-next-line
     }, [selectDate])
 
+
+
     return (
         <div>
-            <Calendar getDate={getDate}/>
+            <Calendar getDate={getDate} tasks={tasks}/>
             {loading ? <Loader/> : <TaskList tasks={tasks}
                                              onRemove={removeTasks}
                                              date={selectDate}
                                              getComplete={getComplete}/>}
-            <AddButton date={selectDate}/>
+            <AddButton date={selectDate} complete={complete}/>
         </div>
     );
 };

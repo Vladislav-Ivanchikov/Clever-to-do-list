@@ -1,8 +1,8 @@
 import {HOME_ROUTE, SIGNIN_ROUTE, REG_ROUTE, TASK_ROUTE} from "./utils/const";
-import SignIn from "./pages/signIn/SignIn";
-import Home from "./pages/home/Home";
-import Registration from "./pages/registration/Registration";
-import TaskPage from "./pages/taskPage/TaskPage";
+import SignIn from "./pages/SignIn/SignIn";
+import Home from "./pages/Home/Home";
+import Registration from "./pages/Registration/Registration";
+import TaskPage from "./pages/TaskPage/TaskPage";
 
 export const privateRoutes = [
     {

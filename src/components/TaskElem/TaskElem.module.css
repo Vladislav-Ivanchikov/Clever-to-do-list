@@ -25,9 +25,14 @@
       transition: .2s; }
       .liStyle .taskWrap .descStyle.active {
         text-decoration: line-through; }
+  .liStyle .buttons {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: space-evenly; }
   .liStyle .button {
     display: flex;
-    width: 10%;
+    width: 20%;
     align-items: center;
     justify-content: center; }
     .liStyle .button button {
@@ -44,5 +49,21 @@
     margin-bottom: 0; }
   .liStyle.active {
     background-color: rgba(146, 57, 246, 0.5); }
+  .liStyle .edit {
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px 0 10px;
+    text-decoration: none;
+    border: 1px solid coral;
+    border-radius: 5px;
+    background-color: white;
+    color: coral;
+    cursor: pointer;
+    transition: .2s; }
+    .liStyle .edit:hover {
+      background-color: coral;
+      color: white; }
 
 /*# sourceMappingURL=TaskElem.module.css.map */
