@@ -3,7 +3,7 @@ import moment from "moment";
 import CalendarItem from "./CalendarItem";
 import s from './Calendar.module.scss'
 
-const Calendar = ({getDate, tasks}) => {
+const Calendar = ({getDate}) => {
     const initMonth = () => {
         const days = []
         for (let i = 0; i <= 31; i++) {
@@ -25,14 +25,14 @@ const Calendar = ({getDate, tasks}) => {
 
     return (
         <div className={s.calendar}>
-            <div><h2 className={s.h2}>Calendar</h2></div>
+            <h3>Calendar</h3>
             <div className={s.calendarSlider}>
                 {initMonth().map(day =>
                     <CalendarItem day={day}
                                   selectDate={selectDate}
                                   key={day}
                                   date={date}
-                                  tasks={tasks}/>
+                    />
                 )}
             </div>
         </div>

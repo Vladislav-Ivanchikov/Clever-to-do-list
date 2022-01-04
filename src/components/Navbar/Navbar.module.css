@@ -7,24 +7,27 @@ header {
   align-items: center;
   justify-content: space-around; }
   header .links {
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     text-decoration: none;
     color: rebeccapurple;
     padding: 5px;
-    transition: .2s; }
+    transition: .2s;
+    margin: 0 10px 0 10px; }
   header .links:hover {
-    font-size: 20px; }
+    font-size: 18px;
+    color: rgba(98, 34, 145, 0.89); }
   header .sigOut {
     border: none;
     background-color: inherit;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     text-decoration: none;
     color: rebeccapurple;
     padding: 5px;
     transition: .2s; }
   header .sigOut:hover {
-    font-size: 20px; }
+    font-size: 18px;
+    color: rgba(98, 34, 145, 0.89); }
 
 /*# sourceMappingURL=Navbar.module.css.map */

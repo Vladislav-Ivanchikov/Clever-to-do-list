@@ -1,20 +1,25 @@
 import React, {useContext} from 'react';
 import {Link} from "react-router-dom";
-import {Context} from "../../index";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {getAuth, signOut} from "firebase/auth";
+import {Context} from "../../index";
+import {AlertContext} from "../../context/alert/alertContext";
 import s from './Navbar.module.scss';
+
 
 const Navbar = () => {
     const {auth} = useContext(Context)
+    const alert = useContext(AlertContext)
     let [user] = useAuthState(auth)
 
-    const signOutUser = () => {
+    const signOutUser = async () => {
         const auth = getAuth();
-        signOut(auth).then(() => {
-            alert('You sign out !')
-        }).catch((error) => {
-            alert(error.message)
+        alert.showAlert(`${auth.currentUser.email} sign out !`)
+        alert.autoHideAlert()
+        signOut(auth)
+        .catch((error) => {
+            alert.showAlert(error.message, 'danger')
+            alert.autoHideAlert()
         });
     }
 

@@ -1,6 +1,8 @@
 .formWrap {
+  height: 80vh;
   display: flex;
   align-items: center;
+  justify-content: center;
   flex-direction: column;
   border: 1px solid coral;
   border-radius: 10px;
@@ -11,23 +13,27 @@
     align-items: center;
     margin: 10px; }
     .formWrap form input {
-      width: 300px;
+      width: 420px;
       margin-bottom: 10px;
       padding: 10px;
       border: 0;
       border-radius: 10px;
       background-color: rgba(243, 233, 233, 0.5);
       font-size: 18px; }
+      .formWrap form input:focus {
+        border: 1px solid coral; }
     .formWrap form textarea {
-      width: 300px;
-      height: 300px;
+      width: 420px;
+      height: 500px;
       margin-bottom: 10px;
       padding: 10px;
       border: 0;
       border-radius: 10px;
       background-color: rgba(243, 233, 233, 0.5);
       font-size: 18px;
-      resize: vertical; }
+      resize: none; }
+      .formWrap form textarea:focus {
+        border: 1px solid coral; }
     .formWrap form .button {
       width: 200px;
       padding: 10px;

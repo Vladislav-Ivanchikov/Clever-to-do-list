@@ -16,22 +16,23 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
 
     return (
         <div className={s.list}>
-            <h2 style={{textAlign: 'center'}}>Task list</h2>
-            <ul>
-                {tasks.length > 0 ?
-                    tasks.map(task =>
-                        <TaskElem
-                            title={task.title}
-                            desc={task.desc}
-                            key={task.id}
-                            id={task.id}
-                            onRemove={onRemove}
-                            getCheck={getCheck}
-                        />
-                    )
-                    :
-                    <h3 style={{textAlign: 'center'}}>No tasks for {date}</h3>}
-            </ul>
+            <h3>Task list</h3>
+                <ul>
+                    {tasks.length > 0 ?
+                        tasks.map(task =>
+                            <TaskElem
+                                title={task.title}
+                                desc={task.desc}
+                                key={task.id}
+                                id={task.id}
+                                onRemove={onRemove}
+                                getCheck={getCheck}
+                                date={date}
+                            />
+                        )
+                        :
+                        <h4 style={{textAlign: 'center'}}>No tasks for {date}</h4>}
+                </ul>
         </div>
     );
 };

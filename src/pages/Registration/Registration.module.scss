@@ -1,12 +1,15 @@
 .registration {
-  *:focus {outline:none !important}
   display: flex;
+  height: 40vh;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
+
   form {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     .inputWrap {
       display: flex;
       flex-direction: column;
@@ -18,12 +21,14 @@
         border-radius: 10px;
         background-color: rgba(243, 233, 233, 0.5);
         font-size: 18px;
-      }
 
-      input:focus {
-        border: 1px solid coral;
+        &:focus {
+          border: 1px solid coral;
+        }
       }
     }
+
+
     .button {
       width: 300px;
       margin: 10px auto;

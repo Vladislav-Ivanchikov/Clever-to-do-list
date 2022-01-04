@@ -1,9 +1,9 @@
 .registration {
   display: flex;
+  height: 40vh;
+  justify-content: center;
   align-items: center;
   flex-direction: column; }
-  .registration *:focus {
-    outline: none !important; }
   .registration form {
     display: flex;
     flex-direction: column;
@@ -18,8 +18,8 @@
         border-radius: 10px;
         background-color: rgba(243, 233, 233, 0.5);
         font-size: 18px; }
-      .registration form .inputWrap input:focus {
-        border: 1px solid coral; }
+        .registration form .inputWrap input:focus {
+          border: 1px solid coral; }
     .registration form .button {
       width: 300px;
       margin: 10px auto;

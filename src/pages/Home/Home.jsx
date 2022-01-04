@@ -25,11 +25,9 @@ const Home = () => {
         // eslint-disable-next-line
     }, [selectDate])
 
-
-
     return (
         <div>
-            <Calendar getDate={getDate} tasks={tasks}/>
+            <Calendar getDate={getDate}/>
             {loading ? <Loader/> : <TaskList tasks={tasks}
                                              onRemove={removeTasks}
                                              date={selectDate}

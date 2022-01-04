@@ -1,24 +1,30 @@
-import React, {useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {useAuth} from "../../context/auth/AuthContext";
+import {AlertContext} from "../../context/alert/alertContext";
+import {Context} from "../../index";
 import s from "../Registration/Registration.module.scss";
+
 
 const SignIn = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const {signIn} = useAuth();
+    const {auth} = useContext(Context)
+    const alert = useContext(AlertContext)
 
     const signInUser = async (e) => {
         e.preventDefault()
         try {
             await signIn(email, password)
+            alert.showAlert(`User ${auth.currentUser.email} sign in !`, 'success')
         } catch (error) {
-            alert(error.message)
+            alert.showAlert(error.message, 'danger')
         }
     }
 
     return (
         <div className={s.registration}>
-            <h1 >Sign in</h1>
+            <h3 >Sign in</h3>
             <form action="">
                 <div className={s.inputWrap}>
                     <input type="email"

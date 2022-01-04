@@ -7,21 +7,23 @@ header {
   align-items: center;
   justify-content: space-around;
   .links {
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     text-decoration: none;
     color: rebeccapurple;
     padding: 5px;
     transition: .2s;
+    margin: 0 10px 0 10px;
   }
   .links:hover {
-    font-size: 20px;
+    font-size: 18px;
+    color: rgba(98, 34, 145, 0.89);
   }
 
   .sigOut {
     border: none;
     background-color: inherit;
-    font-size: 18px;
+    font-size: 20px;
     cursor: pointer;
     text-decoration: none;
     color: rebeccapurple;
@@ -29,6 +31,7 @@ header {
     transition: .2s;
   }
   .sigOut:hover {
-    font-size: 20px;
+    font-size: 18px;
+    color: rgba(98, 34, 145, 0.89);
   }
 }

@@ -4,9 +4,7 @@ import {FirebaseContext} from "./firebaseContext";
 import firebaseReduser from "./firebaseReduser";
 import {auth} from "../../index";
 import {ADD_TASK, EDIT_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING, EDIT_COMPLETED_TASK} from "../../utils/const";
-
 const url = process.env.REACT_APP_DB_URL
-
 
 const FirebaseState = ({children}) => {
     const initialState = {
@@ -82,7 +80,22 @@ const FirebaseState = ({children}) => {
     const getCompleted = async id => {
         const {uid} = auth.currentUser
         const res = await axios.get(`${url}/tasks/${uid}/${id}.json`)
-        return res.data.complete
+        if (res.data){
+            return res.data.complete
+        }
+    }
+
+    const getCompletedForDots = async (date) => {
+        const {uid} = auth.currentUser
+        const res = await axios.get(`${url}/tasks/${uid}.json`)
+
+        if (res.data) {
+            let payload = Object.keys(res.data).map(key => ({
+                ...res.data[key], id: key
+            }))
+            payload = payload.filter(task => task.date === date)
+            return payload
+        }
     }
 
     const removeTasks = async id => {
@@ -97,7 +110,9 @@ const FirebaseState = ({children}) => {
 
     return (
         <FirebaseContext.Provider value={{
-            showLoader, addTasks, fetchTasks, removeTasks, editTask, editComletedTask, getCompleted,
+            showLoader, addTasks, fetchTasks,
+            removeTasks, editTask, editComletedTask,
+            getCompleted, getCompletedForDots,
             loading: state.loading,
             tasks: state.tasks
         }}>

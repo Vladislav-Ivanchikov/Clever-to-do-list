@@ -11,7 +11,7 @@ const AddButton = ({date, complete}) => {
                 to={{
                     pathname: TASK_ROUTE,
                     date,
-                    complete
+                    complete,
                 }}
                 className={s.button}>
                 add new task +

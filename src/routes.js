@@ -7,11 +7,11 @@ import TaskPage from "./pages/TaskPage/TaskPage";
 export const privateRoutes = [
     {
         path: HOME_ROUTE,
-        Component:Home
+        Component: Home
     },
     {
         path: TASK_ROUTE,
-        Component:TaskPage
+        Component: TaskPage
     }
 ]
 

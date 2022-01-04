@@ -1,11 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
-import s from './TaskElem.module.scss';
 import {Link} from "react-router-dom";
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
+import {AlertContext} from "../../context/alert/alertContext";
 import {TASK_ROUTE} from "../../utils/const";
+import s from './TaskElem.module.scss';
 
-const TaskElem = ({title, desc, onRemove, id, getCheck}) => {
+const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
     const {editComletedTask, getCompleted} = useContext(FirebaseContext)
+    const alert = useContext(AlertContext)
+
     const [check, setCheck] = useState(false)
     const [edit, setEdit] = useState(false)
     const [complete, setComplete] = useState(check)
@@ -23,9 +26,11 @@ const TaskElem = ({title, desc, onRemove, id, getCheck}) => {
 
     const changeComletedTask = () => {
         editComletedTask(id, !check).then(() => {
-            alert(!check ? 'Task completed' : 'Task NOT completed')
+            alert.showAlert(
+                !check ? `Task "${title}" completed` : `Task "${title}" NOT completed`,
+                !check ? 'success' : 'warning')
         }).catch(e => {
-            alert(e.message)
+            alert.showAlert(e.message, 'danger')
         })
     }
 
@@ -38,8 +43,11 @@ const TaskElem = ({title, desc, onRemove, id, getCheck}) => {
             setComplete(id)
             setCheck(id)
         })
+        return () => {
+            setComplete(false)
+            setCheck(false)
+        }
     }, [getCompleted, id])
-
 
     return (
         <li className={liStyle}>
@@ -67,13 +75,16 @@ const TaskElem = ({title, desc, onRemove, id, getCheck}) => {
                         pathname: TASK_ROUTE,
                         eTitle: title,
                         eDesc: desc,
-                        edit, id
+                        edit, id, date
                     }}
                     className={s.edit}>
-                    edit
+                    Edit
                 </Link>
                 <div className={s.button}>
-                    <button onClick={() => onRemove(id)}>X</button>
+                    <button onClick={() => {
+                        alert.showAlert(`Task "${title}" was deleted`, 'danger')
+                        onRemove(id)
+                    }}>X</button>
                 </div>
             </div>
         </li>
