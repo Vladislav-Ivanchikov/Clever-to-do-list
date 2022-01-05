@@ -14,24 +14,23 @@ header {
     padding: 5px;
     transition: .2s;
     margin: 0 10px 0 10px;
+
+    @media only screen
+    and (min-device-width: 375px)
+    and (max-device-width: 667px)
+    and (-webkit-min-device-pixel-ratio: 2) {
+      font-size: 16px;
+    }
   }
   .links:hover {
     font-size: 18px;
     color: rgba(98, 34, 145, 0.89);
   }
 
-  .sigOut {
-    border: none;
-    background-color: inherit;
-    font-size: 20px;
-    cursor: pointer;
-    text-decoration: none;
-    color: rebeccapurple;
-    padding: 5px;
-    transition: .2s;
-  }
-  .sigOut:hover {
-    font-size: 18px;
-    color: rgba(98, 34, 145, 0.89);
+  @media only screen
+  and (min-device-width: 375px)
+  and (max-device-width: 667px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    height: 40px;
   }
 }

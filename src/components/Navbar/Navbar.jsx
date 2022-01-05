@@ -12,7 +12,8 @@ const Navbar = () => {
     const alert = useContext(AlertContext)
     let [user] = useAuthState(auth)
 
-    const signOutUser = async () => {
+    const signOutUser = async (e) => {
+        e.preventDefault()
         const auth = getAuth();
         alert.showAlert(`${auth.currentUser.email} sign out !`)
         alert.autoHideAlert()
@@ -35,9 +36,10 @@ const Navbar = () => {
             <div>
                 {
                     user ?
-                        <button
-                            className={s.sigOut}
-                            onClick={signOutUser}>Sign out</button>
+                        <a
+                            href='/'
+                            className={s.links}
+                            onClick={e => signOutUser(e)}>Sign out</a>
                         :
                         <div>
                             <Link to='/signin' className={s.links}>Sign in</Link>
