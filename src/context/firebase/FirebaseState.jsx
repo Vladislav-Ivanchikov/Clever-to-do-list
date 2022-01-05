@@ -85,19 +85,6 @@ const FirebaseState = ({children}) => {
         }
     }
 
-    const getCompletedForDots = async (date) => {
-        const {uid} = auth.currentUser
-        const res = await axios.get(`${url}/tasks/${uid}.json`)
-
-        if (res.data) {
-            let payload = Object.keys(res.data).map(key => ({
-                ...res.data[key], id: key
-            }))
-            payload = payload.filter(task => task.date === date)
-            return payload
-        }
-    }
-
     const removeTasks = async id => {
         const {uid} = auth.currentUser
         await axios.delete(`${url}/tasks/${uid}/${id}.json`)
@@ -107,12 +94,11 @@ const FirebaseState = ({children}) => {
         })
     }
 
-
     return (
         <FirebaseContext.Provider value={{
             showLoader, addTasks, fetchTasks,
             removeTasks, editTask, editComletedTask,
-            getCompleted, getCompletedForDots,
+            getCompleted,
             loading: state.loading,
             tasks: state.tasks
         }}>

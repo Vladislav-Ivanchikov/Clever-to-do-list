@@ -16,7 +16,7 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
 
     return (
         <div>
-            <h3>Task list</h3>
+            <h3 className={s.title}>Task list</h3>
             <div className={s.list}>
                 <ul>
                     {tasks.length > 0 ?
@@ -32,7 +32,7 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
                             />
                         )
                         :
-                        <h4 style={{textAlign: 'center'}}>No tasks for {date}</h4>}
+                        <p>No tasks for {date}</p>}
                 </ul>
             </div>
         </div>

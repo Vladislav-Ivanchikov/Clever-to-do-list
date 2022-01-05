@@ -13,11 +13,12 @@ const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
     const [edit, setEdit] = useState(false)
     const [complete, setComplete] = useState(check)
 
-    let {liStyle, descStyle, titleStyle} = s
+    let {liStyle, descStyle, titleStyle, editBtn} = s
     if (complete) {
         liStyle += ' ' + s.active
         descStyle += ' ' + s.active
         titleStyle += ' ' + s.active
+        editBtn += ' ' + s.active
     }
 
     const handleEdit = () => {
@@ -77,7 +78,7 @@ const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
                         eDesc: desc,
                         edit, id, date
                     }}
-                    className={s.edit}>
+                    className={editBtn}>
                     Edit
                 </Link>
                 <div className={s.button}>

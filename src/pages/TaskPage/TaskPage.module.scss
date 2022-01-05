@@ -8,6 +8,10 @@
   border-radius: 10px;
   margin-top: 20px;
 
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    margin-top: 5px;
+    height: 80vh;
+  }
   form {
     display: flex;
     flex-direction: column;
@@ -25,6 +29,15 @@
       &:focus {
         border: 1px solid coral;
       }
+      &::placeholder {
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 14px;
+        }
+      }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 320px;
+        font-size: 14px;
+      }
     }
 
     textarea {
@@ -39,7 +52,17 @@
       resize: none;
       &:focus {
         border: 1px solid coral;
-      };
+      }
+      &::placeholder {
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 14px;
+        }
+      }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 320px;
+        height: 300px;
+        font-size: 14px;
+      }
     }
 
     .button {
@@ -55,7 +78,13 @@
       text-transform: capitalize;
       text-decoration: none;
       text-align: center;
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 180px;
+        padding: 5px;
+        font-size: 14px;
+      }
     }
+
 
     .button:hover {
       background-color: rgba(255, 127, 80, 0.9);

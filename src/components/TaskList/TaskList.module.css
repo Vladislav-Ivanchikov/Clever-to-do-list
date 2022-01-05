@@ -2,9 +2,13 @@
   height: 54vh;
   border: 1px solid blueviolet;
   border-radius: 20px;
-  margin-top: 10px;
+  margin-top: 5px;
   overflow-y: auto; }
   .list ul {
     padding: 0; }
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  .title {
+    display: none; } }
 
 /*# sourceMappingURL=TaskList.module.css.map */

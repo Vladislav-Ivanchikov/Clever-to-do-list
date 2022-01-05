@@ -22,12 +22,20 @@
         background-color: rgba(243, 233, 233, 0.5);
         font-size: 18px;
 
+        &::placeholder {
+          @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+            font-size: 14px;
+          }
+        }
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 14px;
+        }
+
         &:focus {
           border: 1px solid coral;
         }
       }
     }
-
 
     .button {
       width: 300px;
@@ -43,6 +51,11 @@
       text-transform: capitalize;
       text-decoration: none;
       text-align: center;
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        width: 120px;
+        padding: 5px;
+        font-size: 14px;
+      }
     }
 
     .button:hover {

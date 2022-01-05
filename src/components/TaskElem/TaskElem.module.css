@@ -6,6 +6,10 @@
   display: flex;
   margin: 10px;
   transition: .2s; }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .liStyle {
+      padding: 5px;
+      height: auto; } }
   .liStyle .checkbox {
     width: 10%;
     display: flex;
@@ -14,15 +18,24 @@
   .liStyle .taskWrap {
     width: 80%;
     padding: 5px; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .liStyle .taskWrap {
+        width: 70%; } }
     .liStyle .taskWrap .titleStyle {
       font-size: 18px;
       padding: 5px;
       transition: .2s; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .liStyle .taskWrap .titleStyle {
+          font-size: 14px; } }
       .liStyle .taskWrap .titleStyle.active {
         text-decoration: line-through; }
     .liStyle .taskWrap .descStyle {
       font-style: italic;
       transition: .2s; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .liStyle .taskWrap .descStyle {
+          font-size: 12px; } }
       .liStyle .taskWrap .descStyle.active {
         text-decoration: line-through; }
   .liStyle .buttons {
@@ -30,6 +43,9 @@
     width: 20%;
     align-items: center;
     justify-content: space-evenly; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .liStyle .buttons {
+        width: 25%; } }
   .liStyle .button {
     display: flex;
     width: 20%;
@@ -42,19 +58,22 @@
       color: coral;
       cursor: pointer;
       transition: .2s; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .liStyle .button {
+        font-size: 12px; } }
     .liStyle .button button:hover {
       background-color: coral;
       color: white; }
   .liStyle li:last-child {
     margin-bottom: 0; }
   .liStyle.active {
-    background-color: rgba(146, 57, 246, 0.5); }
-  .liStyle .edit {
-    height: 28px;
+    background-color: rgba(124, 124, 124, 0.5); }
+  .liStyle .editBtn {
     display: flex;
+    height: 28px;
     align-items: center;
     justify-content: center;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
     text-decoration: none;
     border: 1px solid coral;
     border-radius: 5px;
@@ -62,7 +81,14 @@
     color: coral;
     cursor: pointer;
     transition: .2s; }
-    .liStyle .edit:hover {
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .liStyle .editBtn {
+        font-size: 12px;
+        padding: 0 5px;
+        height: 22px; } }
+    .liStyle .editBtn.active {
+      display: none; }
+    .liStyle .editBtn:hover {
       background-color: coral;
       color: white; }
 

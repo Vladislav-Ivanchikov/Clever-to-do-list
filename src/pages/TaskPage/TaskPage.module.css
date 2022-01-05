@@ -7,6 +7,10 @@
   border: 1px solid coral;
   border-radius: 10px;
   margin-top: 20px; }
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    .formWrap {
+      margin-top: 5px;
+      height: 80vh; } }
   .formWrap form {
     display: flex;
     flex-direction: column;
@@ -22,6 +26,13 @@
       font-size: 18px; }
       .formWrap form input:focus {
         border: 1px solid coral; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .formWrap form input::placeholder {
+          font-size: 14px; } }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .formWrap form input {
+          width: 320px;
+          font-size: 14px; } }
     .formWrap form textarea {
       width: 420px;
       height: 500px;
@@ -34,6 +45,14 @@
       resize: none; }
       .formWrap form textarea:focus {
         border: 1px solid coral; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .formWrap form textarea::placeholder {
+          font-size: 14px; } }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .formWrap form textarea {
+          width: 320px;
+          height: 300px;
+          font-size: 14px; } }
     .formWrap form .button {
       width: 200px;
       padding: 10px;
@@ -47,6 +66,11 @@
       text-transform: capitalize;
       text-decoration: none;
       text-align: center; }
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        .formWrap form .button {
+          width: 180px;
+          padding: 5px;
+          font-size: 14px; } }
     .formWrap form .button:hover {
       background-color: rgba(255, 127, 80, 0.9);
       color: whitesmoke; }

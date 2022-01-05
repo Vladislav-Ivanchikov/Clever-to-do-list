@@ -7,6 +7,11 @@
   margin: 10px;
   transition: .2s;
 
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    padding: 5px;
+    height: auto;
+  }
+
   .checkbox {
     width: 10%;
     display: flex;
@@ -17,11 +22,18 @@
   .taskWrap {
     width: 80%;
     padding: 5px;
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      width: 70%;
+    }
 
     .titleStyle {
       font-size: 18px;
       padding: 5px;
       transition: .2s;
+
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        font-size: 14px;
+      }
 
       &.active {
         text-decoration: line-through;
@@ -31,6 +43,9 @@
     .descStyle {
       font-style: italic;
       transition: .2s;
+      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        font-size: 12px;
+      }
 
       &.active {
         text-decoration: line-through;
@@ -43,7 +58,11 @@
     width: 20%;
     align-items: center;
     justify-content: space-evenly;
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      width: 25%;
+    }
   }
+
 
   .button {
     display: flex;
@@ -60,6 +79,10 @@
       transition: .2s;
     }
 
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      font-size: 12px;
+    }
+
     button:hover {
       background-color: coral;
       color: white;
@@ -71,15 +94,15 @@
   }
 
   &.active {
-    background-color: rgba(146, 57, 246, 0.5);
+    background-color: rgba(124, 124, 124, 0.5);
   }
 
-  .edit {
-    height: 28px;
+  .editBtn {
     display: flex;
+    height: 28px;
     align-items: center;
     justify-content: center;
-    padding: 0 10px 0 10px;
+    padding: 0 10px;
     text-decoration: none;
     border: 1px solid coral;
     border-radius: 5px;
@@ -87,6 +110,17 @@
     color: coral;
     cursor: pointer;
     transition: .2s;
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      font-size: 12px;
+      padding: 0 5px;
+      height: 22px;
+    }
+
+    &.active {
+      display: none;
+    }
+
     &:hover {
       background-color: coral;
       color: white;

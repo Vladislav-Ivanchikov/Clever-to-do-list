@@ -48,10 +48,11 @@ const TaskPage = () => {
 
     return (
         <div className={s.formWrap}>
-            <h2>{edit ?
+            <h3>{edit ?
                 `Edit task "${eTitle}" for ${date}`
                 :
-                `Create new task for ${date || ''}`}</h2>
+                `Create new task for ${date || ''}`}
+            </h3>
             <form action="">
                 <div>
                     <input type="text"

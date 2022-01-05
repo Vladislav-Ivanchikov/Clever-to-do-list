@@ -7,10 +7,10 @@ import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
     const {loading, tasks, fetchTasks, removeTasks} = useContext(FirebaseContext)
-    const [selectDate, setSelectDate] = useState(false)
-    const [complete, setComplete] = useState()
+    const [selectDate, setSelectDate] = useState()
+    const [complete, setComplete] = useState(false)
 
-    const getDate = (value) => {
+    const getSelectDate = (value) => {
         setSelectDate(value)
     }
 
@@ -27,7 +27,7 @@ const Home = () => {
 
     return (
         <div>
-            <Calendar getDate={getDate}/>
+            <Calendar getSelectDate={getSelectDate} tasks={tasks}/>
             {loading ? <Loader/> : <TaskList tasks={tasks}
                                              onRemove={removeTasks}
                                              date={selectDate}

@@ -61,6 +61,6 @@
       background-color: #101010; }
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     .calendar {
-      margin: 10px 0 10px 0; } }
+      margin: 5px 0; } }
 
 /*# sourceMappingURL=Calendar.module.css.map */

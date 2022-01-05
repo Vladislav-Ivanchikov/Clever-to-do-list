@@ -16,11 +16,21 @@ body {
 }
 
 h3 {
+  color: rebeccapurple;
   text-align: center;
-  margin: 10px 0 10px 0;
+  margin: 10px 0;
   @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     font-size: 18px;
-    margin: 5px 0 5px 0;
+    margin: 5px 0;
+  }
+}
+
+p {
+  text-align: center;
+  margin: 10px 0;
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    font-size: 14px;
+    margin: 5px 0;
   }
 }
 
