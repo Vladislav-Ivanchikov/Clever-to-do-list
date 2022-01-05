@@ -39,7 +39,8 @@ const Navbar = () => {
                         <a
                             href='/'
                             className={s.links}
-                            onClick={e => signOutUser(e)}>Sign out</a>
+                            onClick={e => signOutUser(e)}>Sign out
+                        </a>
                         :
                         <div>
                             <Link to='/signin' className={s.links}>Sign in</Link>

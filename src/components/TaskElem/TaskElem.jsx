@@ -71,8 +71,8 @@ const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
             </div>
             <div className={s.buttons}>
                 <Link
-                    to={{
-                        pathname: TASK_ROUTE,
+                    to={TASK_ROUTE}
+                    state={{
                         eTitle: title,
                         eDesc: desc,
                         edit, id, date

@@ -8,11 +8,8 @@ const AddButton = ({date, complete}) => {
     return (
         <div style={{display: 'flex', justifyContent: 'center'}}>
             <Link
-                to={{
-                    pathname: TASK_ROUTE,
-                    date,
-                    complete,
-                }}
+                to={TASK_ROUTE}
+                state={{complete, date}}
                 className={s.button}>
                 add new task +
             </Link>
