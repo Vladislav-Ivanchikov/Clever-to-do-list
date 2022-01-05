@@ -1,12 +1,14 @@
 import React, {useContext, useState} from 'react';
+import {useLocation} from "react-router-dom";
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import {AlertContext} from "../../context/alert/alertContext";
 import s from './TaskPage.module.scss'
 
-const TaskPage = (props) => {
+const TaskPage = () => {
     const {addTasks, editTask} = useContext(FirebaseContext)
     const alert = useContext(AlertContext)
-    const {edit, date, complete, eTitle, eDesc, id} = props.location
+    const location = useLocation()
+    const { edit, date, complete, eTitle, eDesc, id } = location.state
 
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')

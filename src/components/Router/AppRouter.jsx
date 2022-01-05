@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import {Switch, Route, Redirect} from "react-router-dom";
+import { Routes, Route, Navigate} from "react-router-dom";
 import {useAuthState} from "react-firebase-hooks/auth";
 import {Context} from "../../index";
 import {privateRoutes, publicRoutes} from "../../routes";
@@ -11,21 +11,21 @@ const AppRouter = () => {
 
     return user ?
         (
-            <Switch>
+            <Routes>
                 {privateRoutes.map(({path, Component}) =>
-                    <Route key={path} path={path} component={Component} exact={true}/>
+                    <Route key={path} path={path} element={Component} exact={true}/>
                 )}
-                <Redirect to={HOME_ROUTE}/>
-            </Switch>
+                <Route path="*" element={<Navigate replace to={HOME_ROUTE}/>}/>
+            </Routes>
         )
         :
         (
-            <Switch>
+            <Routes>
                 {publicRoutes.map(({path, Component}) =>
-                    <Route key={path} path={path} component={Component} exact={true}/>
+                    <Route key={path} path={path} element={Component} exact={true}/>
                 )}
-                <Redirect to={SIGNIN_ROUTE}/>
-            </Switch>
+                <Route path="*" element={<Navigate replace to={SIGNIN_ROUTE}/>}/>
+            </Routes>
         )
 };
 

@@ -15,8 +15,9 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
 
 
     return (
-        <div className={s.list}>
+        <div>
             <h3>Task list</h3>
+            <div className={s.list}>
                 <ul>
                     {tasks.length > 0 ?
                         tasks.map(task =>
@@ -33,7 +34,9 @@ const TaskList = ({tasks, onRemove, date, getComplete}) => {
                         :
                         <h4 style={{textAlign: 'center'}}>No tasks for {date}</h4>}
                 </ul>
+            </div>
         </div>
+
     );
 };
 
