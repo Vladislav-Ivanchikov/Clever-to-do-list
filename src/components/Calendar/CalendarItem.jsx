@@ -1,15 +1,23 @@
-import React from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import moment from "moment";
-
+import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import s from "./Calendar.module.scss";
 
-const CalendarItem = ({day, selectDate, activeDate, tasks}) => {
+const CalendarItem = ({day, selectDate, activeDate, date}) => {
+    const {fetchForDots, tasks} = useContext(FirebaseContext)
     let className = s.calendarItem
     let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
-    let tasksForDay = tasks.map(task => task.complete)
+    const [task, setTask] = useState([])
+
+    useEffect(() => {
+        fetchForDots(date).then(task => setTask(task))
+        // eslint-disable-next-line
+    }, [tasks])
+
+    const taskStatus = task.map(task => task.complete)
 
     const getTasksByStatus = (status) => {
-        return tasksForDay.filter((task) => {
+        return taskStatus.filter((task) => {
             return task === status;
         }).length;
     }

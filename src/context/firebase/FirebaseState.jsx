@@ -32,6 +32,17 @@ const FirebaseState = ({children}) => {
         }
     }
 
+    const fetchForDots = async (date) => {
+        const {uid} = auth.currentUser
+        const res = await axios.get(`${url}/tasks/${uid}.json`)
+        if (res.data) {
+            let payload = Object.keys(res.data).map(key => ({
+                ...res.data[key], id: key
+            }))
+            return payload.filter(task => task.date === date)
+        }
+    }
+
     const addTasks = async (title, desc, date, complete) => {
         const {uid} = auth.currentUser
         const task = {
@@ -98,7 +109,7 @@ const FirebaseState = ({children}) => {
         <FirebaseContext.Provider value={{
             showLoader, addTasks, fetchTasks,
             removeTasks, editTask, editComletedTask,
-            getCompleted,
+            getCompleted, fetchForDots,
             loading: state.loading,
             tasks: state.tasks
         }}>

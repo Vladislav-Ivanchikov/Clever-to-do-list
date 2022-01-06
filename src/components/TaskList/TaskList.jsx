@@ -1,10 +1,9 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState} from 'react';
 import TaskElem from "../TaskElem/TaskElem";
 import s from './TaskList.module.scss'
 
-const TaskList = ({tasks, onRemove, date, getComplete}) => {
+const TaskList = ({ tasks , onRemove, date, getComplete}) => {
     const [check, setCheck] = useState(false)
-
     const getCheck = (value) => {
         setCheck(value)
     }

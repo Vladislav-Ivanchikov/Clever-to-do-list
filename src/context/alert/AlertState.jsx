@@ -17,7 +17,7 @@ const AlertState = ({children}) => {
     const hideAlert = () => dispatch({type: HIDE_ALERT})
 
     const autoHideAlert = () => {
-        setTimeout(() => hideAlert(), 3000)
+        setTimeout(() => hideAlert(), 5000)
     }
 
     return (
