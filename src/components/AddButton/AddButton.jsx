@@ -4,9 +4,8 @@ import {TASK_ROUTE} from "../../utils/const";
 import s from './AddButton.module.scss'
 
 const AddButton = ({date, complete}) => {
-
     return (
-        <div style={{display: 'flex', justifyContent: 'center'}}>
+        <div className={s.buttonWrap}>
             <Link
                 to={TASK_ROUTE}
                 state={{complete, date}}
@@ -14,7 +13,6 @@ const AddButton = ({date, complete}) => {
                 add new task +
             </Link>
         </div>
-
     );
 };
 

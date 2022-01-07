@@ -1,25 +1,32 @@
-.button {
-  width: 300px;
-  margin: 10px auto;
-  padding: 10px;
-  background-color: transparent;
-  color: coral;
-  font-size: 18px;
-  border: 1px solid coral;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: .2s;
-  text-transform: capitalize;
-  text-decoration: none;
-  text-align: center; }
-  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-    .button {
-      width: 150px;
-      padding: 5px;
-      font-size: 14px; } }
-
-.button:hover {
-  background-color: rgba(255, 127, 80, 0.9);
-  color: whitesmoke; }
+.buttonWrap {
+  display: flex;
+  justify-content: center; }
+  .buttonWrap .button {
+    width: 300px;
+    margin: 15px auto;
+    padding: 5px;
+    color: whitesmoke;
+    background-color: coral;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2); }
+    .buttonWrap .button:hover {
+      background-color: #fa6835;
+      color: whitesmoke;
+      -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset; }
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .buttonWrap .button {
+        width: 150px;
+        padding: 5px;
+        font-size: 14px; } }
 
 /*# sourceMappingURL=AddButton.module.css.map */

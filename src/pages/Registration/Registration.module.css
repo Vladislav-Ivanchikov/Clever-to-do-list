@@ -26,27 +26,33 @@
             font-size: 14px; } }
         .registration form .inputWrap input:focus {
           border: 1px solid coral; }
-    .registration form .button {
-      width: 300px;
-      margin: 10px auto;
-      padding: 10px;
-      background-color: transparent;
-      color: coral;
-      font-size: 18px;
-      border: 1px solid coral;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .2s;
-      text-transform: capitalize;
-      text-decoration: none;
-      text-align: center; }
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
-        .registration form .button {
-          width: 120px;
-          padding: 5px;
-          font-size: 14px; } }
-    .registration form .button:hover {
-      background-color: rgba(255, 127, 80, 0.9);
-      color: whitesmoke; }
+  .registration .button {
+    width: 300px;
+    margin: 15px auto;
+    padding: 5px;
+    color: whitesmoke;
+    background-color: coral;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2); }
+    .registration .button:hover {
+      background-color: #fa6835;
+      color: whitesmoke;
+      -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset; }
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .registration .button {
+        width: 120px;
+        padding: 5px;
+        font-size: 14px; } }
 
 /*# sourceMappingURL=Registration.module.css.map */

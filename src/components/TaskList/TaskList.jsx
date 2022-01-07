@@ -10,6 +10,9 @@ const TaskList = ({ tasks , onRemove, date, getComplete}) => {
 
     useEffect(() => {
         getComplete(check)
+        return () => {
+            setCheck(false)
+        }
     }, [getComplete, check])
 
 

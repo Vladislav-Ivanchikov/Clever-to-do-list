@@ -32,7 +32,7 @@ const Home = () => {
                                              onRemove={removeTasks}
                                              date={selectDate}
                                              getComplete={getComplete}/>}
-            <AddButton date={selectDate} complete={complete}/>
+            {loading ? null : <AddButton date={selectDate} complete={complete}/>}
         </div>
     );
 };

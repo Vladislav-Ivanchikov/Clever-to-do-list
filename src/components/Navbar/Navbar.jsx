@@ -16,11 +16,9 @@ const Navbar = () => {
         e.preventDefault()
         const auth = getAuth();
         alert.showAlert(`${auth.currentUser.email} sign out !`)
-        alert.autoHideAlert()
         signOut(auth)
         .catch((error) => {
             alert.showAlert(error.message, 'danger')
-            alert.autoHideAlert()
         });
     }
 

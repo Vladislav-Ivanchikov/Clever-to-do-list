@@ -4,9 +4,11 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border: 1px solid coral;
   border-radius: 10px;
-  margin-top: 20px; }
+  margin-top: 20px;
+  -webkit-box-shadow: 0px 5px 5px -5px #fa9d7c;
+  -moz-box-shadow: 0px 5px 5px -5px rgba(250, 157, 124, 0.92);
+  box-shadow: 0px 5px 5px -5px rgba(250, 157, 124, 0.92); }
   @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     .formWrap {
       margin-top: 5px;
@@ -66,24 +68,30 @@
           font-size: 14px; } }
     .formWrap form .button {
       width: 200px;
-      padding: 10px;
-      background-color: transparent;
-      color: coral;
+      padding: 5px;
+      background-color: coral;
+      color: whitesmoke;
+      border: none;
       font-size: 18px;
-      border: 1px solid coral;
       border-radius: 10px;
       cursor: pointer;
       transition: .2s;
       text-transform: capitalize;
       text-decoration: none;
-      text-align: center; }
+      text-align: center;
+      -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2); }
+      .formWrap form .button:hover {
+        background-color: #fa6835;
+        color: whitesmoke;
+        -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+        -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+        box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset; }
       @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         .formWrap form .button {
           width: 180px;
           padding: 5px;
           font-size: 14px; } }
-    .formWrap form .button:hover {
-      background-color: rgba(255, 127, 80, 0.9);
-      color: whitesmoke; }
 
 /*# sourceMappingURL=TaskPage.module.css.map */

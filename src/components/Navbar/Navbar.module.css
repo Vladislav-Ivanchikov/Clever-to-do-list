@@ -1,13 +1,12 @@
 header {
   display: flex;
   width: 100%;
-  height: 80px;
-  border: 1px solid coral;
+  height: 70px;
   border-radius: 10px;
   align-items: center;
   justify-content: space-around; }
   header .links {
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
     text-decoration: none;
     color: rebeccapurple;
@@ -18,7 +17,7 @@ header {
       header .links {
         font-size: 16px; } }
   header .links:hover {
-    font-size: 18px;
+    font-size: 20px;
     color: rgba(98, 34, 145, 0.89); }
   @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     header {

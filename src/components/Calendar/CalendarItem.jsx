@@ -41,7 +41,9 @@ const CalendarItem = ({day, selectDate, activeDate, date}) => {
             <div className={className}
                  data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
                  onClick={(e) => selectedDate(e)}>
-                {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
+                {moment().add(day, 'day').format('ddd')}
+                <br/>
+                {moment().add(day, 'day').format('D')}
             </div>
             <div className={s.dots}>
                 {doneDot > 0 && <div className={s.completeDot}></div>}
