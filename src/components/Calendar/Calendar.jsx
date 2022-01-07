@@ -3,7 +3,6 @@ import moment from "moment";
 import CalendarItem from "./CalendarItem";
 import s from './Calendar.module.scss'
 
-
 const Calendar = ({getSelectDate}) => {
     const [selectedDate, setSelectedDate] = useState(moment().format('DD.MM.YYYY'))
     const [activeDate, setActiveDate] = useState(moment().format('DD.MM.YYYY'))
@@ -16,12 +15,12 @@ const Calendar = ({getSelectDate}) => {
         return days
     }
 
-    const dayOfMonth =  initMonth()
+    const dayOfMonth = initMonth()
     const dateOfMonth = dayOfMonth.map(day => moment().add(day, 'day').format('DD.MM.YYYY'))
 
     const initTaskForDay = () => {
         const arr = []
-        for (let i = 0; i < 31; i++){
+        for (let i = 0; i < 31; i++) {
             arr.push({day: dayOfMonth[i], date: dateOfMonth[i]})
         }
         return arr

@@ -1,14 +1,31 @@
 .list {
-  height: 54vh;
+  height: 53vh;
   border: 1px solid blueviolet;
   border-radius: 20px;
   margin-top: 5px;
   overflow-y: auto; }
+  @media only screen and (min-width: 390px) and (max-width: 767px) {
+    .list {
+      height: 60vh;
+      margin: 5px 0; } }
+  @media only screen and (min-width: 414px) and (max-width: 767px) {
+    .list {
+      height: 60vh;
+      margin: 10px 0; } }
+  @media only screen and (min-width: 768px) and (max-width: 1180px) {
+    .list {
+      height: 58vh; } }
   .list ul {
     padding: 0; }
 
-@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+@media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
   .title {
     display: none; } }
+@media only screen and (min-width: 390px) and (max-width: 767px) {
+  .title {
+    display: block; } }
+@media only screen and (min-width: 414px) and (max-width: 767px) {
+  .title {
+    display: block; } }
 
 /*# sourceMappingURL=TaskList.module.css.map */

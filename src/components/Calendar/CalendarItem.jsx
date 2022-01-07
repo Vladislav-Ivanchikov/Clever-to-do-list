@@ -9,15 +9,18 @@ const CalendarItem = ({day, selectDate, activeDate, date}) => {
     let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
     const [task, setTask] = useState([])
 
+
     useEffect(() => {
         fetchForDots(date).then(task => setTask(task))
+        return () => {
+            setTask([])
+        }
         // eslint-disable-next-line
     }, [tasks])
 
-    const taskStatus = task.map(task => task.complete)
 
     const getTasksByStatus = (status) => {
-        return taskStatus.filter((task) => {
+        return task.filter((task) => {
             return task === status;
         }).length;
     }

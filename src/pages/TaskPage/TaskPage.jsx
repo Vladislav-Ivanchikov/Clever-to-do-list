@@ -37,7 +37,6 @@ const TaskPage = () => {
             editTask(id, editTitle.trim(), editDesc.trim())
                 .then(() => {
                     alert.showAlert(`Task edited to "${editTitle.trim()}" !`, 'success')
-                    alert.autoHideAlert()
                 }).catch((e) => {
                 alert.showAlert(e.message, 'danger')
             })

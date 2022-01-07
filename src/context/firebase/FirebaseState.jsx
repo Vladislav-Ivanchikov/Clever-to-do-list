@@ -4,6 +4,7 @@ import {FirebaseContext} from "./firebaseContext";
 import firebaseReduser from "./firebaseReduser";
 import {auth} from "../../index";
 import {ADD_TASK, EDIT_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING, EDIT_COMPLETED_TASK} from "../../utils/const";
+
 const url = process.env.REACT_APP_DB_URL
 
 const FirebaseState = ({children}) => {
@@ -39,7 +40,7 @@ const FirebaseState = ({children}) => {
             let payload = Object.keys(res.data).map(key => ({
                 ...res.data[key], id: key
             }))
-            return payload.filter(task => task.date === date)
+            return payload.filter(task => task.date === date).map(item => item.complete)
         }
     }
 
@@ -71,19 +72,19 @@ const FirebaseState = ({children}) => {
                 ...task, id: res.data.name
             }
             dispatch({type: EDIT_TASK, payload})
-        }catch (e){
+        } catch (e) {
             throw new Error(e.message)
         }
     }
 
-    const editComletedTask = async ( id, complete ) => {
+    const editComletedTask = async (id, complete) => {
         const {uid} = auth.currentUser
         const task = {complete}
         try {
             await axios.patch(`${url}/tasks/${uid}/${id}.json`, task)
             const payload = {...task}
             dispatch({type: EDIT_COMPLETED_TASK, payload})
-        }catch (e){
+        } catch (e) {
             throw new Error(e.message)
         }
     }
@@ -91,7 +92,7 @@ const FirebaseState = ({children}) => {
     const getCompleted = async id => {
         const {uid} = auth.currentUser
         const res = await axios.get(`${url}/tasks/${uid}/${id}.json`)
-        if (res.data){
+        if (res.data) {
             return res.data.complete
         }
     }

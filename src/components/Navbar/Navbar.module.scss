@@ -16,7 +16,7 @@ header {
     margin: 0 10px 0 10px;
 
     @media only screen
-    and (min-device-width: 375px)
+    and (min-device-width: 360px)
     and (max-device-width: 667px)
     and (-webkit-min-device-pixel-ratio: 2) {
       font-size: 16px;
@@ -28,9 +28,10 @@ header {
   }
 
   @media only screen
-  and (min-device-width: 375px)
+  and (min-device-width: 360px)
   and (max-device-width: 667px)
   and (-webkit-min-device-pixel-ratio: 2) {
     height: 40px;
   }
+  
 }

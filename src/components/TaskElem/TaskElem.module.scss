@@ -7,7 +7,7 @@
   margin: 10px;
   transition: .2s;
 
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     padding: 5px;
     height: auto;
   }
@@ -19,10 +19,15 @@
     justify-content: center;
   }
 
+  input {
+    width: 15px;
+    height: 15px;
+  }
+
   .taskWrap {
     width: 80%;
     padding: 5px;
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
       width: 70%;
     }
 
@@ -31,24 +36,26 @@
       padding: 5px;
       transition: .2s;
 
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 14px;
       }
 
       &.active {
         text-decoration: line-through;
+        color: #5d5d5d;
       }
     }
 
     .descStyle {
       font-style: italic;
       transition: .2s;
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         font-size: 12px;
       }
 
       &.active {
         text-decoration: line-through;
+        color: #5d5d5d;
       }
     }
   }
@@ -58,7 +65,7 @@
     width: 20%;
     align-items: center;
     justify-content: space-evenly;
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
       width: 25%;
     }
   }
@@ -79,7 +86,7 @@
       transition: .2s;
     }
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
       font-size: 12px;
     }
 
@@ -111,7 +118,7 @@
     cursor: pointer;
     transition: .2s;
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
       font-size: 12px;
       padding: 0 5px;
       height: 22px;

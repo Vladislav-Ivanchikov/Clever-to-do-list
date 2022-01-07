@@ -14,13 +14,13 @@ header {
     padding: 5px;
     transition: .2s;
     margin: 0 10px 0 10px; }
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
       header .links {
         font-size: 16px; } }
   header .links:hover {
     font-size: 18px;
     color: rgba(98, 34, 145, 0.89); }
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     header {
       height: 40px; } }
 

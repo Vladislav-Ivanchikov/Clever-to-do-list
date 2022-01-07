@@ -2,7 +2,7 @@
   height: 18vh;
   border: 1px solid coral;
   border-radius: 10px;
-  margin: 20px 0 20px 0; }
+  margin: 10px 0; }
   .calendar .calendarSlider {
     display: flex;
     overflow: auto;
@@ -26,7 +26,7 @@
       .calendar .calendarSlider .calendarItem:hover {
         background-color: coral;
         color: white; }
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         .calendar .calendarSlider .calendarItem {
           margin: 5px;
           font-size: 14px; } }
@@ -40,7 +40,10 @@
       -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
       border-radius: 10px;
       background-color: #f9f9fd; }
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      .calendar .calendarSlider::-webkit-scrollbar {
+        height: 0; } }
+    @media only screen and (min-width: 768px) and (max-width: 1180px) {
       .calendar .calendarSlider::-webkit-scrollbar {
         height: 0; } }
   .calendar .dots {
@@ -59,8 +62,19 @@
       height: 5px;
       border-radius: 50%;
       background-color: #101010; }
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     .calendar {
       margin: 5px 0; } }
+  @media only screen and (min-width: 390px) and (max-width: 767px) {
+    .calendar {
+      height: 125px;
+      margin: 5px 0; } }
+  @media only screen and (min-width: 414px) and (max-width: 767px) {
+    .calendar {
+      height: 125px;
+      margin: 5px 0; } }
+  @media only screen and (min-width: 768px) and (max-width: 1180px) {
+    .calendar {
+      height: 150px; } }
 
 /*# sourceMappingURL=Calendar.module.css.map */

@@ -11,18 +11,13 @@ const AlertState = ({children}) => {
             type: SHOW_ALERT,
             payload: {text, type}
         })
-        autoHideAlert()
     }
 
     const hideAlert = () => dispatch({type: HIDE_ALERT})
 
-    const autoHideAlert = () => {
-        setTimeout(() => hideAlert(), 5000)
-    }
-
     return (
         <AlertContext.Provider
-            value={{showAlert, hideAlert, autoHideAlert, alert: state}}>
+            value={{showAlert, hideAlert, alert: state}}>
             {children}
         </AlertContext.Provider>
     );

@@ -60,7 +60,7 @@ const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
                            setCheck(!check)
                        }}
                        onClick={() => changeComletedTask()}
-                       id='check'/>
+                       />
             </div>
             <div className={s.taskWrap}>
                 <div className={titleStyle}>

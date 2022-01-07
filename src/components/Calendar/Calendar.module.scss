@@ -2,7 +2,7 @@
   height: 18vh;
   border: 1px solid coral;
   border-radius: 10px;
-  margin: 20px 0 20px 0;
+  margin: 10px 0;
 
   .calendarSlider {
     display: flex;
@@ -33,7 +33,7 @@
         color: white;
       }
 
-      @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
         margin: 5px;
         font-size: 14px;
       }
@@ -55,7 +55,13 @@
       background-color: #f9f9fd;
     }
 
-    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1180px)  {
       &::-webkit-scrollbar {
         height: 0;
       }
@@ -84,8 +90,22 @@
     }
   }
 
-  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
     margin: 5px 0;
+  }
+
+  @media only screen and (min-width: 390px) and (max-width: 767px) {
+    height: 125px;
+    margin: 5px 0;
+  }
+
+  @media only screen and (min-width: 414px) and (max-width: 767px) {
+    height: 125px;
+    margin: 5px 0;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1180px)  {
+    height: 150px;
   }
 }
 
