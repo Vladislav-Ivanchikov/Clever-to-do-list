@@ -15,7 +15,6 @@ const TaskList = ({ tasks , onRemove, date, getComplete}) => {
         }
     }, [getComplete, check])
 
-
     return (
         <div>
             <h3 className={s.title}>Task list</h3>

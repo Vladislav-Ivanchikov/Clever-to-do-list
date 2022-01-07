@@ -5,10 +5,10 @@ import s from "./Calendar.module.scss";
 
 const CalendarItem = ({day, selectDate, activeDate, date}) => {
     const {fetchForDots, tasks} = useContext(FirebaseContext)
-    let className = s.calendarItem
-    let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
     const [task, setTask] = useState([])
 
+    let className = s.calendarItem
+    let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
 
     useEffect(() => {
         fetchForDots(date).then(task => setTask(task))

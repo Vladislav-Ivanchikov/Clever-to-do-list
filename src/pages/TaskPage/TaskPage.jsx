@@ -1,5 +1,5 @@
 import React, {useContext, useState} from 'react';
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import {AlertContext} from "../../context/alert/alertContext";
 import s from './TaskPage.module.scss'
@@ -7,6 +7,8 @@ import s from './TaskPage.module.scss'
 const TaskPage = () => {
     const {addTasks, editTask} = useContext(FirebaseContext)
     const alert = useContext(AlertContext)
+
+    const navigate = useNavigate()
     const location = useLocation()
     const { edit, date, complete, eTitle, eDesc, id } = location.state
 
@@ -20,7 +22,8 @@ const TaskPage = () => {
         if (title.trim() && desc.trim()) {
             addTasks(title.trim(), desc.trim(), date, complete)
                 .then(() => {
-                    alert.showAlert(`Task "${title.trim()}" been created !`, 'success')
+                    navigate('/')
+                    alert.showAlert(`Task "${title.trim()}" for ${date.slice(0, 5)} been created !`, 'success')
                 }).catch(() => {
                 alert.showAlert('Something went wrong', 'danger')
             })
@@ -36,7 +39,8 @@ const TaskPage = () => {
         if (editTitle.trim() && editDesc.trim()) {
             editTask(id, editTitle.trim(), editDesc.trim())
                 .then(() => {
-                    alert.showAlert(`Task edited to "${editTitle.trim()}" !`, 'success')
+                    navigate('/')
+                    alert.showAlert(`Task edited to "${editTitle.trim()}" for ${date.slice(0, 5)} !`, 'success')
                 }).catch((e) => {
                 alert.showAlert(e.message, 'danger')
             })

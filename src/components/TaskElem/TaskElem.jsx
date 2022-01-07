@@ -36,13 +36,10 @@ const TaskElem = ({title, desc, onRemove, id, getCheck, date}) => {
     }
 
     useEffect(() => {
-        handleEdit()
-    }, [])
-
-    useEffect(() => {
         getCompleted(id).then(id => {
             setComplete(id)
             setCheck(id)
+            handleEdit()
         })
         return () => {
             setComplete(false)

@@ -4,7 +4,6 @@ import {Context} from "../../index";
 import {AlertContext} from "../../context/alert/alertContext";
 import s from './Registration.module.scss'
 
-
 const Registration = () => {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
