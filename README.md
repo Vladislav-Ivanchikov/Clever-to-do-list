@@ -31,8 +31,8 @@ Unique ID is created for each task. Tasks are loaded for each user based on UID.
 4. description
 
 Screenshot of the realtime database:
-![DB screen](dbSnapshot/screenshotDB.jpg)
+![DB screen](https://files.fm/thumb_show.php?i=7grbuzbs5)
 
 Screenshot of authenticated users:
-![Auth screen](dbSnapshot/screenshotAuth.jpg)
+![Auth screen](https://files.fm/thumb_show.php?i=gq62th6ca)
 
