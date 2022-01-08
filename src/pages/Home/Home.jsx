@@ -25,6 +25,7 @@ const Home = () => {
         // eslint-disable-next-line
     }, [selectDate])
 
+    console.log(tasks)
     return (
         <div>
             <Calendar getSelectDate={getSelectDate} tasks={tasks}/>
@@ -32,7 +33,7 @@ const Home = () => {
                                              onRemove={removeTasks}
                                              date={selectDate}
                                              getComplete={getComplete}/>}
-            {loading ? null : <AddButton date={selectDate} complete={complete}/>}
+            {loading && tasks.length !== 0 ? null : <AddButton date={selectDate} complete={complete}/>}
         </div>
     );
 };

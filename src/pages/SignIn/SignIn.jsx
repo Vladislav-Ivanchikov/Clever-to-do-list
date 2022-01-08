@@ -15,10 +15,12 @@ const SignIn = () => {
     const signInUser = async (e) => {
         e.preventDefault()
         try {
-            await signIn(email, password)
-            alert.showAlert(`User ${auth.currentUser.email} sign in !`, 'success')
+            if (email && password) {
+                await signIn(email, password)
+                alert.showAlert(`User ${auth.currentUser.email} sign in !`, 'success')
+            }else alert.showAlert('Please fill all lines')
         } catch (error) {
-            alert.showAlert(error.message, 'danger')
+            alert.showAlert('Please check the correctness of the entered data', 'danger')
         }
     }
 

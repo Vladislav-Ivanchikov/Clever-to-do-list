@@ -14,8 +14,10 @@ const Registration = () => {
     const regNewUser = async (e) => {
         e.preventDefault()
         try {
-            await register(email, password)
-            alert.showAlert(`User ${auth.currentUser.email} register !`, 'success')
+            if (email && password){
+                await register(email, password)
+                alert.showAlert(`User ${auth.currentUser.email} register !`, 'success')
+            } else alert.showAlert('Please fill all lines')
         } catch (error) {
             alert.showAlert(error.message, 'danger')
         }

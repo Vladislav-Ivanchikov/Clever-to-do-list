@@ -9,24 +9,28 @@ const CalendarItem = ({day, selectDate, activeDate, date}) => {
 
     let className = s.calendarItem
     let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
+    let doneDot
+    let undoneDot
 
     useEffect(() => {
-        fetchForDots(date).then(task => setTask(task))
+        if (tasks !== []){
+            fetchForDots(date).then(task => setTask(task))
+        }
         return () => {
             setTask([])
         }
         // eslint-disable-next-line
     }, [tasks])
 
-
-    const getTasksByStatus = (status) => {
-        return task.filter((task) => {
-            return task === status;
-        }).length;
+    if (task) {
+        const getTasksByStatus = (status) => {
+            return task.filter((task) => {
+                return task === status;
+            }).length;
+        }
+        doneDot = getTasksByStatus(true)
+        undoneDot = getTasksByStatus(false)
     }
-
-    const doneDot = getTasksByStatus(true)
-    const undoneDot = getTasksByStatus(false)
 
     const selectedDate = (e) => {
         selectDate(e)
