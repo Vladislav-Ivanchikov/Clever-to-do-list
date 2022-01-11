@@ -1,4 +1,4 @@
-import { HIDE_ALERT, SHOW_ALERT } from "../../utils/const";
+import { HIDE_ALERT, SHOW_ALERT } from "../../utils/actions";
 
 const handlers = {
   [SHOW_ALERT]: (state, { payload }) => ({ ...payload, visible: true }),

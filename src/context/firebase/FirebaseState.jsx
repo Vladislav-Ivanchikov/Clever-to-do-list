@@ -1,16 +1,17 @@
 import React, { useReducer } from "react";
 import axios from "axios";
 import { FirebaseContext } from "./firebaseContext";
-import firebaseReduser from "./firebaseReduser";
 import { auth } from "../../index";
-import { SHOW_LOADING } from "../../utils/const";
+import firebaseReduser from "./firebaseReduser";
 import {
   addAction,
   editAction,
   editCompleteAction,
   fetchAction,
+  loaderAction,
   removeAction,
 } from "../../utils/actions";
+
 const url = process.env.REACT_APP_DB_URL;
 
 const FirebaseState = ({ children }) => {
@@ -20,7 +21,8 @@ const FirebaseState = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(firebaseReduser, initialState);
-  const showLoader = () => dispatch({ type: SHOW_LOADING });
+
+  const showLoader = () => dispatch(loaderAction());
 
   const fetchTasks = async (date) => {
     showLoader();

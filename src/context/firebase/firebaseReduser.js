@@ -5,7 +5,7 @@ import {
   SHOW_LOADING,
   EDIT_TASK,
   EDIT_COMPLETED_TASK,
-} from "../../utils/const";
+} from "../../utils/actions";
 
 const handler = {
   [SHOW_LOADING]: (state) => ({ ...state, loading: true }),
