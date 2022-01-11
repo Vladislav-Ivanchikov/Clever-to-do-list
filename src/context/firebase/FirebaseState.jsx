@@ -3,15 +3,14 @@ import axios from "axios";
 import { FirebaseContext } from "./firebaseContext";
 import firebaseReduser from "./firebaseReduser";
 import { auth } from "../../index";
+import { SHOW_LOADING } from "../../utils/const";
 import {
-  ADD_TASK,
-  EDIT_TASK,
-  FETCH_TASKS,
-  REMOVE_TASK,
-  SHOW_LOADING,
-  EDIT_COMPLETED_TASK,
-} from "../../utils/const";
-
+  addAction,
+  editAction,
+  editCompleteAction,
+  fetchAction,
+  removeAction,
+} from "../../utils/actions";
 const url = process.env.REACT_APP_DB_URL;
 
 const FirebaseState = ({ children }) => {
@@ -19,8 +18,8 @@ const FirebaseState = ({ children }) => {
     tasks: [],
     loading: false,
   };
-  const [state, dispatch] = useReducer(firebaseReduser, initialState);
 
+  const [state, dispatch] = useReducer(firebaseReduser, initialState);
   const showLoader = () => dispatch({ type: SHOW_LOADING });
 
   const fetchTasks = async (date) => {
@@ -34,7 +33,7 @@ const FirebaseState = ({ children }) => {
           id: key,
         }));
         payload = payload.filter((task) => task.date === date);
-        dispatch({ type: FETCH_TASKS, payload });
+        dispatch(fetchAction(payload));
       }
     } catch (e) {
       throw new Error(e.message);
@@ -69,7 +68,7 @@ const FirebaseState = ({ children }) => {
         ...task,
         id: res.data.name,
       };
-      dispatch({ type: ADD_TASK, payload });
+      dispatch(addAction(payload));
     } catch (e) {
       throw new Error(e.message);
     }
@@ -87,7 +86,7 @@ const FirebaseState = ({ children }) => {
         ...task,
         id: res.data.name,
       };
-      dispatch({ type: EDIT_TASK, payload });
+      dispatch(editAction(payload));
     } catch (e) {
       throw new Error(e.message);
     }
@@ -99,7 +98,7 @@ const FirebaseState = ({ children }) => {
     try {
       await axios.patch(`${url}/tasks/${uid}/${id}.json`, task);
       const payload = { ...task };
-      dispatch({ type: EDIT_COMPLETED_TASK, payload });
+      dispatch(editCompleteAction(payload));
     } catch (e) {
       throw new Error(e.message);
     }
@@ -116,10 +115,7 @@ const FirebaseState = ({ children }) => {
   const removeTasks = async (id) => {
     const { uid } = auth.currentUser;
     await axios.delete(`${url}/tasks/${uid}/${id}.json`);
-    dispatch({
-      type: REMOVE_TASK,
-      payload: id,
-    });
+    dispatch(removeAction(id));
   };
 
   return (

@@ -21,13 +21,13 @@ const CalendarItem = ({ day, selectDate, activeDate, date }) => {
   }, [tasks]);
 
   if (task) {
-    const tasksByStatus = (status) => {
+    const getTasksLengthByStatus = (status) => {
       return task.filter((task) => {
         return task === status;
       }).length;
     };
-    doneDot = tasksByStatus(true);
-    undoneDot = tasksByStatus(false);
+    doneDot = getTasksLengthByStatus(true);
+    undoneDot = getTasksLengthByStatus(false);
   }
 
   const selectedDate = (e) => {
