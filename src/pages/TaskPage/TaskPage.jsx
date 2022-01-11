@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { FirebaseContext } from "../../context/firebase/firebaseContext";
 import { AlertContext } from "../../context/alert/alertContext";
 import { ERRORS } from "../../utils/errors";
-import s from "./TaskPage.module.scss";
+import classes from "./TaskPage.module.scss";
 
 const TaskPage = () => {
   const { addTasks, editTask } = useContext(FirebaseContext);
@@ -66,8 +66,12 @@ const TaskPage = () => {
     edit ? setEditDesc(e.target.value) : setDesc(e.target.value);
   };
 
+  const handleClick = (e) => {
+    edit ? changeTask(e) : createTask(e);
+  };
+
   return (
-    <div className={s.formWrap}>
+    <div className={classes.formWrap}>
       <h3>
         {edit
           ? `Edit task "${eTitle}" for ${date}`
@@ -79,17 +83,17 @@ const TaskPage = () => {
             type="text"
             placeholder="Title your task"
             value={edit ? editTitle : title}
-            onChange={(e) => handleChangeTitle(e)}
+            onChange={handleChangeTitle}
           />
         </div>
         <div>
           <textarea
             placeholder="Description your task"
             value={edit ? editDesc : desc}
-            onChange={(e) => handleChangeDesc(e)}
+            onChange={handleChangeDesc}
           />
         </div>
-        <button onClick={edit ? changeTask : createTask} className={s.button}>
+        <button onClick={handleClick} className={classes.button}>
           {edit ? "Edit task" : "Create task"}
         </button>
       </form>

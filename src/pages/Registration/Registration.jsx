@@ -3,7 +3,7 @@ import { useAuth } from "../../context/auth/AuthContext";
 import { Context } from "../../index";
 import { AlertContext } from "../../context/alert/alertContext";
 import { ERRORS } from "../../utils/errors";
-import s from "./Registration.module.scss";
+import classes from "./Registration.module.scss";
 
 const Registration = () => {
   const [email, setEmail] = useState("");
@@ -25,10 +25,10 @@ const Registration = () => {
   };
 
   return (
-    <div className={s.registration}>
+    <div className={classes.registration}>
       <h3>Register</h3>
       <form action="">
-        <div className={s.inputWrap}>
+        <div className={classes.inputWrap}>
           <input
             type="email"
             placeholder="Email"
@@ -36,7 +36,7 @@ const Registration = () => {
             onChange={(e) => setEmail(e.target.value)}
           />
         </div>
-        <div className={s.inputWrap}>
+        <div className={classes.inputWrap}>
           <input
             type="password"
             placeholder="Password"
@@ -44,7 +44,7 @@ const Registration = () => {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
-        <button className={s.button} onClick={regNewUser} type="submit">
+        <button className={classes.button} onClick={regNewUser} type="submit">
           Register
         </button>
       </form>

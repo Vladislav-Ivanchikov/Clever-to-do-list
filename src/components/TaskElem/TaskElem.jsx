@@ -4,7 +4,7 @@ import { FirebaseContext } from "../../context/firebase/firebaseContext";
 import { AlertContext } from "../../context/alert/alertContext";
 import { TASK_ROUTE } from "../../utils/const";
 import { ERRORS } from "../../utils/errors";
-import s from "./TaskElem.module.scss";
+import classes from "./TaskElem.module.scss";
 
 const TaskElem = ({ title, desc, onRemove, id, getCheck, date }) => {
   const { editComletedTask, getCompleted } = useContext(FirebaseContext);
@@ -14,17 +14,13 @@ const TaskElem = ({ title, desc, onRemove, id, getCheck, date }) => {
   const [edit, setEdit] = useState(false);
   const [complete, setComplete] = useState(check);
 
-  let { liStyle, descStyle, titleStyle, editBtn } = s;
+  let { liStyle, descStyle, titleStyle, editBtn } = classes;
   if (complete) {
-    liStyle += " " + s.active;
-    descStyle += " " + s.active;
-    titleStyle += " " + s.active;
-    editBtn += " " + s.active;
+    liStyle += " " + classes.active;
+    descStyle += " " + classes.active;
+    titleStyle += " " + classes.active;
+    editBtn += " " + classes.active;
   }
-
-  const handleEdit = () => {
-    setEdit(true);
-  };
 
   const changeComletedTask = () => {
     editComletedTask(id, !check)
@@ -41,6 +37,24 @@ const TaskElem = ({ title, desc, onRemove, id, getCheck, date }) => {
       });
   };
 
+  const handleEdit = () => {
+    setEdit(true);
+  };
+
+  const handleChange = () => {
+    getCheck(!check);
+    setCheck(!check);
+  };
+
+  const handleClick = () => {
+    changeComletedTask();
+  };
+
+  const handleDelete = () => {
+    alert.showAlert(`Task "${title}" was deleted`, "danger");
+    onRemove(id);
+  };
+
   useEffect(() => {
     getCompleted(id).then((id) => {
       setComplete(id);
@@ -55,22 +69,19 @@ const TaskElem = ({ title, desc, onRemove, id, getCheck, date }) => {
 
   return (
     <li className={liStyle}>
-      <div className={s.checkbox}>
+      <div className={classes.checkbox}>
         <input
           type="checkbox"
           checked={complete}
-          onChange={() => {
-            getCheck(!check);
-            setCheck(!check);
-          }}
-          onClick={() => changeComletedTask()}
+          onChange={handleChange}
+          onClick={handleClick}
         />
       </div>
-      <div className={s.taskWrap}>
+      <div className={classes.taskWrap}>
         <div className={titleStyle}>{title}</div>
         <div className={descStyle}>{desc}</div>
       </div>
-      <div className={s.buttons}>
+      <div className={classes.buttons}>
         <Link
           to={TASK_ROUTE}
           state={{
@@ -84,15 +95,8 @@ const TaskElem = ({ title, desc, onRemove, id, getCheck, date }) => {
         >
           Edit
         </Link>
-        <div className={s.button}>
-          <button
-            onClick={() => {
-              alert.showAlert(`Task "${title}" was deleted`, "danger");
-              onRemove(id);
-            }}
-          >
-            X
-          </button>
+        <div className={classes.button}>
+          <button onClick={handleDelete}>X</button>
         </div>
       </div>
     </li>

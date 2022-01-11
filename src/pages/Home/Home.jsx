@@ -20,9 +20,7 @@ const Home = () => {
   };
 
   useEffect(() => {
-    if (tasks) {
-      fetchTasks(selectDate);
-    }
+    fetchTasks(selectDate);
     // eslint-disable-next-line
   }, [selectDate]);
 
@@ -39,7 +37,7 @@ const Home = () => {
           getComplete={completedCB}
         />
       )}
-      {!loading && <AddButton date={selectDate} complete={complete} />}
+      <AddButton date={selectDate} complete={complete} />
     </div>
   );
 };

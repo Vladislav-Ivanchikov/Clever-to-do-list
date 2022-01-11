@@ -1,21 +1,19 @@
 import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
 import { FirebaseContext } from "../../context/firebase/firebaseContext";
-import s from "./Calendar.module.scss";
+import classes from "./Calendar.module.scss";
 
 const CalendarItem = ({ day, selectDate, activeDate, date }) => {
   const { fetchForDots, tasks } = useContext(FirebaseContext);
   const [task, setTask] = useState([]);
 
-  let className = s.calendarItem;
+  let className = classes.calendarItem;
   let selectDay = moment().add(day, "day").format("DD.MM.YYYY");
   let doneDot;
   let undoneDot;
 
   useEffect(() => {
-    if (tasks !== []) {
-      fetchForDots(date).then((task) => setTask(task));
-    }
+    fetchForDots(date).then((task) => setTask(task));
     return () => {
       setTask([]);
     };
@@ -37,7 +35,7 @@ const CalendarItem = ({ day, selectDate, activeDate, date }) => {
   };
 
   if (selectDay === activeDate) {
-    className += " " + s.active;
+    className += " " + classes.active;
   }
 
   return (
@@ -45,15 +43,15 @@ const CalendarItem = ({ day, selectDate, activeDate, date }) => {
       <div
         className={className}
         data-date={moment().add(day, "day").format("DD.MM.YYYY")}
-        onClick={(e) => selectedDate(e)}
+        onClick={selectedDate}
       >
         {moment().add(day, "day").format("ddd")}
         <br />
         {moment().add(day, "day").format("D")}
       </div>
-      <div className={s.dots}>
-        {doneDot > 0 && <div className={s.completeDot}></div>}
-        {undoneDot > 0 && <div className={s.noCompleteDot}></div>}
+      <div className={classes.dots}>
+        {doneDot > 0 && <div className={classes.completeDot}></div>}
+        {undoneDot > 0 && <div className={classes.noCompleteDot}></div>}
       </div>
     </div>
   );

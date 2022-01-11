@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import TaskElem from "../TaskElem/TaskElem";
-import s from "./TaskList.module.scss";
+import classes from "./TaskList.module.scss";
 
 const TaskList = ({ tasks, onRemove, date, getComplete }) => {
   const [check, setCheck] = useState(false);
@@ -17,8 +17,8 @@ const TaskList = ({ tasks, onRemove, date, getComplete }) => {
 
   return (
     <div>
-      <h3 className={s.title}>Task list</h3>
-      <div className={s.list}>
+      <h3 className={classes.title}>Task list</h3>
+      <div className={classes.list}>
         <ul>
           {tasks.length > 0 ? (
             tasks.map((task) => (

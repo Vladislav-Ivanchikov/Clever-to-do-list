@@ -4,7 +4,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { getAuth, signOut } from "firebase/auth";
 import { Context } from "../../index";
 import { AlertContext } from "../../context/alert/alertContext";
-import s from "./Navbar.module.scss";
+import { ERRORS } from "../../utils/errors";
+import classes from "./Navbar.module.scss";
 
 const Navbar = () => {
   const { auth } = useContext(Context);
@@ -15,30 +16,30 @@ const Navbar = () => {
     e.preventDefault();
     const auth = getAuth();
     alert.showAlert(`${auth.currentUser.email} sign out !`);
-    signOut(auth).catch((error) => {
-      alert.showAlert(error.message, "danger");
+    signOut(auth).catch(() => {
+      alert.showAlert(ERRORS.SWW, "danger");
     });
   };
 
   return (
     <header>
       <div>
-        <Link to="/" className={s.links}>
+        <Link to="/" className={classes.links}>
           Tasker
         </Link>
       </div>
       <div>
         {user ? (
-          <a href="/" className={s.links} onClick={(e) => signOutUser(e)}>
+          <a href="/" className={classes.links} onClick={signOutUser}>
             Sign out
           </a>
         ) : (
           <div>
-            <Link to="/signin" className={s.links}>
+            <Link to="/signin" className={classes.links}>
               Sign in
             </Link>
             |
-            <Link to="/registration" className={s.links}>
+            <Link to="/registration" className={classes.links}>
               Register
             </Link>
           </div>
