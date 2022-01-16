@@ -1,36 +1,60 @@
-import React from 'react';
-import s from "./Calendar.module.scss";
+import React, { useContext, useEffect, useState } from "react";
 import moment from "moment";
+import { FirebaseContext } from "../../context/firebase/firebaseContext";
+import classes from "./Calendar.module.scss";
 
-const CalendarItem = ({day, selectDate, date}) => {
-    let className = s.calendarItem
-    let selectDay = moment().add(day, 'day').format('DD.MM.YYYY')
+const CalendarItem = ({ day, selectDate, activeDate, date }) => {
+  const { fetchForDots, tasks } = useContext(FirebaseContext);
+  const [task, setTask] = useState([]);
 
-    const selectedDate = (e) => {
-        selectDate(e)
-    }
+  let className = classes.calendarItem;
+  let selectDay = moment().add(day, "day").format("DD.MM.YYYY");
+  let doneDot;
+  let undoneDot;
 
-    if (selectDay === date) {
-        className += ' ' + s.active;
-    }
+  useEffect(() => {
+    fetchForDots(date).then((task) => setTask(task));
+    return () => {
+      setTask([]);
+    };
+    // eslint-disable-next-line
+  }, [tasks]);
 
-    return (
-        <div>
-            <div className={className}
-                 key={day}
-                 data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
-                 onClick={(e) => {
-                     (e) = selectedDate(e)
-                 }}>
-                {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
-            </div>
-            <div className={s.dots}>
-                <div className={s.completeDot}></div>
-                <div className={s.noCompleteDot}></div>
-            </div>
-        </div>
+  if (task) {
+    const getTasksLengthByStatus = (status) => {
+      return task.filter((task) => {
+        return task === status;
+      }).length;
+    };
+    doneDot = getTasksLengthByStatus(true);
+    undoneDot = getTasksLengthByStatus(false);
+  }
 
-    );
+  const selectedDate = (e) => {
+    selectDate(e);
+  };
+
+  if (selectDay === activeDate) {
+    className += " " + classes.active;
+  }
+
+  return (
+    <div>
+      <div
+        className={className}
+        data-date={moment().add(day, "day").format("DD.MM.YYYY")}
+        onClick={selectedDate}
+      >
+        {moment().add(day, "day").format("ddd")}
+        <br />
+        {moment().add(day, "day").format("D")}
+      </div>
+      <div className={classes.dots}>
+        {doneDot > 0 && <div className={classes.completeDot}></div>}
+        {undoneDot > 0 && <div className={classes.noCompleteDot}></div>}
+      </div>
+    </div>
+  );
 };
 
 export default CalendarItem;

@@ -1,0 +1,76 @@
+.registration {
+  display: flex;
+  height: 40vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .inputWrap {
+      display: flex;
+      flex-direction: column;
+
+      input {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 0;
+        border-radius: 10px;
+        background-color: rgba(243, 233, 233, 0.5);
+        font-size: 18px;
+
+        &::placeholder {
+          @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+            font-size: 14px;
+          }
+        }
+
+        @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+          font-size: 14px;
+        }
+
+        &:focus {
+          border: 1px solid coral;
+        }
+      }
+    }
+  }
+
+  .button {
+    width: 300px;
+    margin: 15px auto;
+    padding: 5px;
+    color: whitesmoke;
+    background-color: coral;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: .2s;
+    text-transform: capitalize;
+    text-decoration: none;
+    text-align: center;
+    -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+    box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2);
+
+    &:hover {
+      background-color: #fa6835;
+      color: whitesmoke;
+      -webkit-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      -moz-box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+      box-shadow: 0px 5px 10px -3px rgba(34, 60, 80, 0.2) inset;
+    }
+
+    @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      width: 120px;
+      padding: 5px;
+      font-size: 14px;
+    }
+  }
+}
+
+

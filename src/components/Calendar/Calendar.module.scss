@@ -1,38 +1,71 @@
 .calendar {
-  height: 20vh;
-  border: 1px solid coral;
+  height: 18vh;
   border-radius: 10px;
-  margin: 20px 0 20px 0;
-
-  .h2 {
-    text-align: center;
-  }
 
   .calendarSlider {
     display: flex;
     overflow: auto;
+    padding-bottom: 10px;
 
     .calendarItem {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 100px;
+      justify-content: center;
+      min-width: 60px;
       min-height: 60px;
-      border: 1px solid coral;
-      border-radius: 5px;
+      border-radius: 10px;
       margin: 10px 15px 10px 15px;
       text-align: center;
       cursor: pointer;
-      transition: .2s;
+      transition: .3s;
+      -webkit-box-shadow: 0px 5px 10px -2px rgba(34, 60, 80, 0.2);
+      -moz-box-shadow: 0px 5px 10px -2px rgba(34, 60, 80, 0.2);
+      box-shadow: 0px 5px 10px -4px rgba(34, 60, 80, 0.2);
+
+
       &.active {
         background-color: coral;
         color: white;
       }
+
+      &:hover {
+        background-color: coral;
+        color: white;
+      }
+
+      @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+        margin: 5px;
+        font-size: 14px;
+      }
     }
 
-    .calendarItem:hover {
+    &::-webkit-scrollbar {
+      height: 10px;
+      background-color: #f9f9fd;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      border-radius: 10px;
       background-color: coral;
-      color: white;
+    }
+
+    &::-webkit-scrollbar-track {
+      -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+      background-color: #f9f9fd;
+    }
+
+
+    @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+      &::-webkit-scrollbar {
+        height: 0;
+      }
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1180px)  {
+      &::-webkit-scrollbar {
+        height: 0;
+      }
     }
   }
 
@@ -46,15 +79,34 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: #101010;
+      background-color: #ff7f50;
       margin-right: 5px;
     }
+
     .noCompleteDot {
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background-color: #ff7f50;
+      background-color: #101010;
     }
+  }
+
+  @media only screen and (min-device-width: 360px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    margin: 5px;
+  }
+
+  @media only screen and (min-width: 390px) and (max-width: 767px) {
+    height: 125px;
+    margin: 5px;
+  }
+
+  @media only screen and (min-width: 414px) and (max-width: 767px) {
+    height: 125px;
+    margin: 5px;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 1180px)  {
+    height: 150px;
   }
 }
 

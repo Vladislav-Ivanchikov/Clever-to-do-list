@@ -1,28 +1,38 @@
-# Getting Started with Create React App
+# Innowise Lab Internship Level 1 Clever to do list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Task:
 
-## Available Scripts
+https://docs.google.com/document/d/1heFuihWrsw14bCpUdr6fla9ysqE6IrsobSMKAOpBiKA/edit#
+
+## How to run the app
 
 In the project directory, you can run:
 
-### `npm start`
+`npm install`
+`npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To open the application follow link in browser "http://localhost:3000"
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Application stack:
 
+1. sass
+2. bootstrap
+3. axios
+4. moment js
 
-### `npm run build`
+## Database snapshot:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I'm using realtime database. When adding a task for a user, a separate branch is created in the database with a user id.
+Unique ID is created for each task. Tasks are loaded for each user based on UID. Tasks items consist of several fields:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. complete - status 'done' for task
+2. date - task date
+3. title
+4. description
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Screenshot of the realtime database:
+![DB screen](https://files.fm/thumb_show.php?i=7grbuzbs5)
 
+Screenshot of authenticated users:
+![Auth screen](https://files.fm/thumb_show.php?i=gq62th6ca)
 
