@@ -7,21 +7,21 @@ import TaskPage from "./pages/taskPage/TaskPage";
 export const privateRoutes = [
     {
         path: HOME_ROUTE,
-        Component:Home
+        Component:<Home/>
     },
     {
         path: TASK_ROUTE,
-        Component:TaskPage
+        Component:<TaskPage/>
     }
 ]
 
 export const publicRoutes = [
     {
         path: SIGNIN_ROUTE,
-        Component: SignIn
+        Component: <SignIn/>
     },
     {
         path: REG_ROUTE,
-        Component: Registration
+        Component: <Registration/>
     }
 ]

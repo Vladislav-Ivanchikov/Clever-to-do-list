@@ -1,16 +1,19 @@
 import React, {useContext, useState} from 'react';
 import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import s from './TaskPage.module.scss'
+import {useLocation} from "react-router-dom";
 
-const TaskPage = (props) => {
+const TaskPage = () => {
     const [title, setTitle] = useState('')
     const [desc, setDesc] = useState('')
     const firebase = useContext(FirebaseContext)
+    const {state: {date}} = useLocation()
+    console.log(date)
 
     const createTask = (e) => {
         e.preventDefault()
         if (title.trim() && desc.trim()) {
-            firebase.addTasks(title.trim(), desc.trim(), props.location.date).then(() => {
+            firebase.addTasks(title.trim(), desc.trim(), date).then(() => {
                 alert('Task been created')
             }).catch(() => {
                 alert('Something went wrong')

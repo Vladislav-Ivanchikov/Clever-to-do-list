@@ -3,7 +3,7 @@ import {FirebaseContext} from "../../context/firebase/firebaseContext";
 import Calendar from "../../components/Calendar/Calendar";
 import TaskList from "../../components/TaskList/TaskList";
 import AddButton from "../../components/AddButton/AddButton";
-import Loader from "../../components/loader/Loader";
+import Loader from "../../components/Loader/Loader";
 
 const Home = () => {
     const {loading, tasks, fetchTasks, removeTasks} = useContext(FirebaseContext)
@@ -23,12 +23,13 @@ const Home = () => {
         if (tasks) {
             fetchTasks(selectDate)
         }
+        console.log(selectDate)
         // eslint-disable-next-line
     }, [selectDate])
 
     return (
         <div>
-            <Calendar getDate={getDate}/>
+            <Calendar getDate={getDate} complete={complete}/>
             {loading ? <Loader/> : <TaskList tasks={tasks}
                                              onRemove={removeTasks}
                                              date={selectDate}

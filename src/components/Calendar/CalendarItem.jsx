@@ -19,9 +19,7 @@ const CalendarItem = ({day, selectDate, date}) => {
             <div className={className}
                  key={day}
                  data-date={moment().add(day, 'day').format('DD.MM.YYYY')}
-                 onClick={(e) => {
-                     (e) = selectedDate(e)
-                 }}>
+                 onClick={(e) => selectedDate(e)}>
                 {moment().add(day, 'day').format('DD.MM.YYYY dddd')}
             </div>
             <div className={s.dots}>

@@ -3,7 +3,7 @@ import moment from "moment";
 import CalendarItem from "./CalendarItem";
 import s from './Calendar.module.scss'
 
-const Calendar = ({getDate}) => {
+const Calendar = ({getDate, complete}) => {
     const initMonth = () => {
         const days = []
         for (let i = 0; i <= 31; i++){

@@ -4,10 +4,11 @@ import {FirebaseContext} from "./firebaseContext";
 import firebaseReduser from "./firebaseReduser";
 import {auth} from "../../index";
 import {ADD_TASK, FETCH_TASKS, REMOVE_TASK, SHOW_LOADING} from "../../utils/const";
-const url = process.env.REACT_APP_DB_URL
 
 
 const FirebaseState = ({children}) => {
+    const url = "https://level1intership-default-rtdb.europe-west1.firebasedatabase.app"
+
     const initialState = {
         tasks: [],
         loading: false
@@ -33,7 +34,7 @@ const FirebaseState = ({children}) => {
     const addTasks = async (title, desc, date) => {
         const {uid} = auth.currentUser
         const task = {
-            title, desc, date
+            title, desc, date, complete: false
         }
         try {
             const res = await axios.post(`${url}/tasks/${uid}.json`, task)
